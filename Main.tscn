@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3bkmrbakcsqh"]
+[gd_scene load_steps=6 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://interactable.gd" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://assets/room.aseprite" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d2qvllfrlu4j8" path="res://scenes/LightSwitch.tscn" id="3_h2yge"]
 
 [sub_resource type="GDScript" id="GDScript_uu6xs"]
 script/source = "extends Node
+@onready var background: Sprite2D = $Background
 
 func _on_interactable_clicked(button: int) -> void:
 	Game.cursor.current_item = load(\"uid://bfnq3rjfl7phv\")
+
+
+func _on_light_switch_state_changed(new_state: int) -> void:
+	background.frame = new_state
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
@@ -14,6 +21,11 @@ radius = 64.0
 
 [node name="Main" type="Node"]
 script = SubResource("GDScript_uu6xs")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(128, 128)
+texture = ExtResource("2_0xm2m")
+hframes = 4
 
 [node name="Interactable" type="Area2D" parent="."]
 position = Vector2(119, 129)
@@ -27,4 +39,8 @@ shape = SubResource("CircleShape2D_r0du0")
 offset_right = 8.0
 offset_bottom = 8.0
 
+[node name="LightSwitch" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(240, 39)
+
 [connection signal="clicked" from="Interactable" to="." method="_on_interactable_clicked"]
+[connection signal="state_changed" from="LightSwitch" to="." method="_on_light_switch_state_changed"]
