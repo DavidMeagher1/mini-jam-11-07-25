@@ -14,7 +14,6 @@ func set_noise_level(noise: float) -> void:
 	if noise_level >= max_value and not was_too_load:
 		was_too_load = true
 		Game.too_loud.emit()
-		set_process(false)
 
 func _ready() -> void:
 	Game.impact.connect(_on_impact)
@@ -40,6 +39,10 @@ func _process(delta: float) -> void:
 		else:
 			self.value = noise_level
 
+	if noise_level >= max_value:
+		set_process(false)
+		return
+	
 	if react_timer > 0:
 		react_timer -= delta
 		return
