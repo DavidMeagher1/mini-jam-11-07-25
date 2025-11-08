@@ -10,9 +10,9 @@ func set_noise_level(noise: float) -> void:
 	if noise > noise_level:
 		react_timer = 0.3
 	noise_level = noise
+	Game.noise_changed.emit(noise_level)
 	if not visible:
 		visible = true
-	
 	if noise_level >= max_value and not was_too_load:
 		was_too_load = true
 		Game.too_loud.emit()
