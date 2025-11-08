@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bugfsisgk5rsh"]
+
+[ext_resource type="Script" uid="uid://bnyrfs7bqocsl" path="res://Inventory/InventoryGrid.gd" id="1_bmn0i"]
+[ext_resource type="Script" uid="uid://cklutflkd0lby" path="res://Inventory/InventoryItem.gd" id="2_ffhxf"]
+
+[node name="InventoryGrid" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
+script = ExtResource("1_bmn0i")
+
+[node name="InventoryItem" type="TextureRect" parent="."]
+layout_mode = 2
+script = ExtResource("2_ffhxf")

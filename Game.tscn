@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://gywso7ka6cvl"]
 
 [ext_resource type="Script" uid="uid://cav74r102rlch" path="res://Game.gd" id="1_wbfu4"]
-[ext_resource type="PackedScene" uid="uid://bpc8ssx1xgwhi" path="res://Inventory/Inventory.tscn" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://bpc8ssx1xgwhi" path="res://Inventory/UI/Inventory.tscn" id="2_xkndl"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wbfu4")

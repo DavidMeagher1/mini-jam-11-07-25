@@ -1,4 +1,4 @@
-class_name Item extends Resource
+class_name ItemData extends Resource
 
 @export var name: String = ""
 @export var description: String = ""
