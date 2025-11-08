@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://ce304v3lj4he2"
+path="res://.godot/imported/coord.aseprite-74f12fd99d4d205b7d11648af4e08e6c.res"
+
+[deps]
+
+source_file="res://assets/coord.aseprite"
+dest_files=["res://.godot/imported/coord.aseprite-74f12fd99d4d205b7d11648af4e08e6c.res"]
+
+[params]
+
+grid_pack=true

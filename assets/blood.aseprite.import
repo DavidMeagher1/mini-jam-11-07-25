@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://dyijkifgwknjk"
+path="res://.godot/imported/blood.aseprite-72d3ffca7ea27a5ca1af220a2a1dc3f1.res"
+
+[deps]
+
+source_file="res://assets/blood.aseprite"
+dest_files=["res://.godot/imported/blood.aseprite-72d3ffca7ea27a5ca1af220a2a1dc3f1.res"]
+
+[params]
+
+grid_pack=false
