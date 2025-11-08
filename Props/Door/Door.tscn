@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cvw6r7weck2yf" path="res://Props/Door/Door.aseprite" id="1_83kqr"]
 [ext_resource type="Script" uid="uid://degp4c6edkd2y" path="res://Props/Door/Door.gd" id="1_sqlwo"]
 [ext_resource type="Script" uid="uid://dlt1dvr051xmf" path="res://addons/aseprite-importer/Tools/SyncingAnimationPlayer.gd" id="2_4gcux"]
-[ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://interactable.gd" id="4_q61yq"]
+[ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="4_q61yq"]
 
 [sub_resource type="Animation" id="Animation_sqlwo"]
 length = 0.5

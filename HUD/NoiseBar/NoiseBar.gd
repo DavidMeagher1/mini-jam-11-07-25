@@ -1,6 +1,7 @@
 extends ProgressBar
 
-const NOISE_FALLOFF: float = 2.0
+const NOISE_FALLOFF: float = 5.0
+const BASIC_NOISE: float = 2.0
 
 var noise_level: float = 0.0: set = set_noise_level
 var react_timer: float = 0.0
@@ -20,13 +21,17 @@ func _ready() -> void:
 
 func _on_impact(noise: float) -> void:
 	noise_level += noise
+	var tween = create_tween()
+	# Shake the bar to indicate noise impact
+	tween.tween_property(self, "position", Vector2(1, 0), 0.05)
+	tween.tween_property(self, "position", Vector2(-1, 0), 0.1)
+	tween.tween_property(self, "position", Vector2(0, 0), 0.05)
 
 func _input(event: InputEvent) -> void:
-	if not visible:
-		visible = true
-		return
 	if event.is_pressed():
-		noise_level += 10.0
+		if not visible:
+			visible = true
+		_on_impact(BASIC_NOISE)
 
 func _process(delta: float) -> void:
 	if int(noise_level) != int(self.value):

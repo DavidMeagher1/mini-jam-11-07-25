@@ -1,27 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=3 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://assets/room.aseprite" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
 
-[sub_resource type="GDScript" id="GDScript_uu6xs"]
-script/source = "extends Node
-@onready var background: Sprite2D = $Background
-
-func _on_interactable_clicked(button: int) -> void:
-	var item = load(\"uid://bfnq3rjfl7phv\")
-	if Game.active_item:
-		if Game.active_item == item: Game.consume_active_item()
-	else:
-		Game.grab_item(item)
-		
-func _on_light_switch_state_changed(new_state: int) -> void:
-	background.frame = new_state
-"
-
 [node name="Main" type="Node2D"]
-script = SubResource("GDScript_uu6xs")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -36,4 +21,5 @@ position = Vector2(173, 45)
 position = Vector2(128, 128)
 limit_enabled = false
 
+[connection signal="ready" from="CanvasModulate" to="CanvasModulate" method="show"]
 [connection signal="opened" from="Door" to="CanvasModulate" method="set_color" binds= [Color(1, 1, 1, 1)]]
