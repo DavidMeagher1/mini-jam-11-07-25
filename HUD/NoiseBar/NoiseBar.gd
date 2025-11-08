@@ -28,10 +28,9 @@ func _on_impact(noise: float) -> void:
 	tween.tween_property(self, "position", Vector2(0, 0), 0.05)
 
 func _input(event: InputEvent) -> void:
-	if not visible:
-		visible = true
-		return
 	if event.is_pressed():
+		if not visible:
+			visible = true
 		_on_impact(BASIC_NOISE)
 
 func _process(delta: float) -> void:
