@@ -6,7 +6,7 @@
 script/source = "extends Node
 
 func _on_interactable_clicked(button: int) -> void:
-	Game.force_drag_item(load(\"uid://bfnq3rjfl7phv\"))
+	Game.cursor.current_item = load(\"uid://bfnq3rjfl7phv\")
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]

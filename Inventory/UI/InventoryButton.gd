@@ -1,10 +1,7 @@
 extends TextureButton
 
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-    if data is ItemData:
-        return true
-    return false
-
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-    if data is ItemData:
-        Game.inventory.add_item(data)
+func _gui_input(event: InputEvent) -> void:
+    if Game.cursor.current_item and event.is_pressed():
+        Game.inventory.add_item(Game.cursor.current_item)
+        Game.cursor.current_item = null
+        accept_event()

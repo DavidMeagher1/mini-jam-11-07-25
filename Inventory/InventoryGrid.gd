@@ -8,15 +8,6 @@ func _ready() -> void:
     Game.inventory.changed.connect(_on_inventory_changed)
     _on_inventory_changed()
 
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-    if data is ItemData:
-        return true
-    return false
-
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-    if data is ItemData:
-        Game.inventory.add_item(data)
-
 func _on_inventory_changed() -> void:
     for child in get_children():
         child.queue_free()
@@ -25,6 +16,12 @@ func _on_inventory_changed() -> void:
         var item_instance = item_template.duplicate()
         item_instance.item_data = item
         add_child(item_instance)
+
+func _gui_input(event: InputEvent) -> void:
+    if event.is_pressed() and Game.cursor.current_item:
+        Game.inventory.add_item(Game.cursor.current_item)
+        Game.cursor.current_item = null
+        accept_event()
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):

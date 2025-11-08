@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cklutflkd0lby" path="res://Inventory/InventoryItem.gd" id="1_q4euc"]
 
-[node name="InventoryItem" type="TextureRect"]
+[node name="InventoryItem" type="TextureButton"]
+stretch_mode = 5
 script = ExtResource("1_q4euc")

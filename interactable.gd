@@ -60,7 +60,3 @@ func is_pressed(button: int) -> bool:
 
 func reset_inputs() -> void:
 	inputs.clear()
-
-@warning_ignore("unused_parameter")
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return false
