@@ -13,6 +13,6 @@ func set_item_data(data: ItemData) -> void:
 		texture_normal = null
 
 func _on_pressed() -> void:
-	if not Game.has_active_item():
+	if not Game.active_item:
 		Game.grab_item(item_data, true)
 		accept_event()

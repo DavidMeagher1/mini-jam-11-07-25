@@ -7,8 +7,8 @@ script/source = "extends Node
 
 func _on_interactable_clicked(button: int) -> void:
 	var item = load(\"uid://bfnq3rjfl7phv\")
-	if Game.has_active_item(item):
-		Game.consume_active_item()
+	if Game.active_item:
+		if Game.active_item == item: Game.consume_active_item()
 	else:
 		Game.grab_item(item)
 "
