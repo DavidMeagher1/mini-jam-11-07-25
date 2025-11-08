@@ -31,7 +31,6 @@ texture_normal = SubResource("AtlasTexture_wf2vw")
 script = ExtResource("2_xjbm4")
 
 [node name="NoiseBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_ne771")]
-custom_minimum_size = Vector2(64, 4)
 layout_mode = 2
 
 [node name="InventoryGrid" parent="." instance=ExtResource("3_wf2vw")]
