@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bmfn67av7ekea" path="res://Cursor.gd" id="1_ux3mw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ux3mw"]
-radius = 4.0
+radius = 14.0
 
 [sub_resource type="Gradient" id="Gradient_ux3mw"]
 interpolation_mode = 1
@@ -28,7 +28,7 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ux3mw")
-disabled = true
+debug_color = Color(0.6630903, 0.51344866, 0, 0.41960785)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_e3af5")

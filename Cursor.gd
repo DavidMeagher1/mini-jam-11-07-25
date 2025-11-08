@@ -14,4 +14,4 @@ func set_current_item(item: ItemData) -> void:
 		visible = false
 
 func _process(_delta: float) -> void:
-	global_position = get_viewport().get_mouse_position()
+	global_position = get_global_mouse_position()

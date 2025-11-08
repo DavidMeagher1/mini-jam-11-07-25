@@ -5,3 +5,5 @@
 - Feed dog
 - Cut off own foot to feed dog
 - Find knife
+
+- Eyes sometimes show up from the darkness to close

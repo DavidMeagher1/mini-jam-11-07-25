@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccd32q8tyxgmk"]
+
+[ext_resource type="PackedScene" uid="uid://g8vahu5ess6e" path="res://Props/Eye/Eye.aseprite" id="1_d8hn3"]
+[ext_resource type="Script" uid="uid://cfimwyteot4d" path="res://Props/Eye/Eye.gd" id="1_uuhbe"]
+[ext_resource type="Script" uid="uid://dlt1dvr051xmf" path="res://addons/aseprite-importer/Tools/SyncingAnimationPlayer.gd" id="2_uuhbe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uuhbe"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_1jf4b"]
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Close"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4o2y7"]
+length = 0.3
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Open"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_uuhbe"]
+length = 0.3
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("RESET"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4o2y7"]
+_data = {
+&"Close": SubResource("Animation_1jf4b"),
+&"Open": SubResource("Animation_4o2y7"),
+&"RESET": SubResource("Animation_uuhbe")
+}
+
+[node name="Eye" type="Area2D"]
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("1_uuhbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uuhbe")
+
+[node name="Eye" parent="." instance=ExtResource("1_d8hn3")]
+
+[node name="SyncingAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_4o2y7")
+}
+script = ExtResource("2_uuhbe")
+source_animation_player = NodePath("../Eye/AnimationPlayer")
+
+[editable path="Eye"]

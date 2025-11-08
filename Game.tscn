@@ -11,6 +11,7 @@ script = ExtResource("1_wbfu4")
 
 [node name="CursorLayer" type="CanvasLayer" parent="."]
 layer = 2147483647
+follow_viewport_enabled = true
 
 [node name="Cursor" parent="CursorLayer" instance=ExtResource("3_u44n3")]
 unique_name_in_owner = true
