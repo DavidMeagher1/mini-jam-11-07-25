@@ -6,7 +6,7 @@
 script/source = "extends Node
 
 func _on_interactable_clicked(button: int) -> void:
-	Game.cursor.current_item = load(\"uid://bfnq3rjfl7phv\")
+	Game.grab_item(load(\"uid://bfnq3rjfl7phv\"))
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
@@ -22,9 +22,5 @@ metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 shape = SubResource("CircleShape2D_r0du0")
-
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
 
 [connection signal="clicked" from="Interactable" to="." method="_on_interactable_clicked"]

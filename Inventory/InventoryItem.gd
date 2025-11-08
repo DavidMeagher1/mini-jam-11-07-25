@@ -13,7 +13,6 @@ func set_item_data(data: ItemData) -> void:
 		texture_normal = null
 
 func _on_pressed() -> void:
-	if Game.cursor.current_item == null:
-		Game.inventory.remove_item(item_data)
-		Game.cursor.current_item = item_data
+	if not Game.has_active_item():
+		Game.grab_item(item_data, true)
 		accept_event()
