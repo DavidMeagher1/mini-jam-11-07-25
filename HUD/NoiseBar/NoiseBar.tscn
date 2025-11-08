@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://hp4b3ofgj8y2"]
+
+[ext_resource type="Script" uid="uid://davl37faum3sm" path="res://HUD/NoiseBar/NoiseBar.gd" id="1_sp1m4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf2vw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp1m4"]
+bg_color = Color(0.4, 0.101960786, 0.101960786, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="NoiseBar" type="ProgressBar"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 64.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wf2vw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sp1m4")
+show_percentage = false
+script = ExtResource("1_sp1m4")

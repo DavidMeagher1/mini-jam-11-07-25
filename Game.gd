@@ -1,6 +1,12 @@
 extends Node
 
+signal impact(noise: float) # Will add noise to the noise bar
+signal noise_changed(noise_level: float) # Emitted when the noise level changes
+signal too_loud() # Emitted when the player makes too much noise
+
+
 var inventory: InventoryData = InventoryData.new()
+var was_too_load: bool = false
 var active_item: ItemData = null:
 	get:
 		if cursor:
@@ -9,10 +15,17 @@ var active_item: ItemData = null:
 	set(value):
 		if cursor:
 			grab_item(value)
+
+
 @onready var cursor: Area2D = %Cursor
 
+
 func _ready() -> void:
+	# For testing purposes, give the player a key at start
 	inventory.add_item(load("uid://dcr0oiel6gb4a"))
+
+func has_item(item: ItemData) -> bool:
+	return inventory.has_item(item)
 
 func grab_item(item: ItemData, from_inventory: bool = false) -> void:
 	if active_item:
