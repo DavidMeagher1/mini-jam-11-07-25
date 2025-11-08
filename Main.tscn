@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=4 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://assets/room.aseprite" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
 
 [sub_resource type="GDScript" id="GDScript_uu6xs"]
 script/source = "extends Node
@@ -24,3 +25,10 @@ script = SubResource("GDScript_uu6xs")
 position = Vector2(128, 128)
 texture = ExtResource("2_0xm2m")
 hframes = 4
+
+[node name="Door" parent="." instance=ExtResource("2_uu6xs")]
+position = Vector2(173, 45)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 128)
+limit_enabled = false

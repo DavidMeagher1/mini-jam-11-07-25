@@ -12,7 +12,7 @@ var active_item: ItemData = null:
 @onready var cursor: Area2D = %Cursor
 
 func _ready() -> void:
-	inventory.add_item(load("uid://o1t7t4wuynpc"))
+	inventory.add_item(load("uid://dcr0oiel6gb4a"))
 
 func grab_item(item: ItemData, from_inventory: bool = false) -> void:
 	if active_item:

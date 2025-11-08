@@ -11,6 +11,7 @@ func _on_clicked(_button: int) -> void:
 
     if Game.active_item == Key:
         is_open = true
+        Game.consume_active_item()
         %SyncingAnimationPlayer.play("Open")
     else:
         %SyncingAnimationPlayer.play("Locked")
