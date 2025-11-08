@@ -19,9 +19,8 @@ func _on_inventory_changed() -> void:
 
 func _gui_input(event: InputEvent) -> void:
     if event.is_pressed() and Game.cursor.current_item:
-        var temp_item = Game.cursor.current_item
+        Game.inventory.add_item(Game.cursor.current_item)
         Game.cursor.current_item = null
-        Game.inventory.add_item(temp_item)
         accept_event()
 
 func _unhandled_input(event: InputEvent) -> void:
