@@ -18,5 +18,9 @@ func drop_item() -> void:
 		inventory.add_item(cursor.current_item)
 		cursor.current_item = null
 
+func consume_active_item() -> void:
+	if cursor.current_item:
+		cursor.current_item = null
+
 func has_active_item() -> bool:
 	return cursor.current_item != null

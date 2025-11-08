@@ -6,7 +6,10 @@
 script/source = "extends Node
 
 func _on_interactable_clicked(button: int) -> void:
-	Game.grab_item(load(\"uid://bfnq3rjfl7phv\"))
+	if Game.has_active_item():
+		Game.consume_active_item()
+	else:
+		Game.grab_item(load(\"uid://bfnq3rjfl7phv\"))
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
