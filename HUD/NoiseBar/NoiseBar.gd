@@ -5,15 +5,15 @@ const BASIC_NOISE: float = 2.0
 
 var noise_level: float = 0.0: set = set_noise_level
 var react_timer: float = 0.0
-var was_too_load: bool = false
+var was_too_loud: bool = false
 
 func set_noise_level(noise: float) -> void:
 	if noise > noise_level:
 		react_timer = 0.3
 	noise_level = noise
 	Game.noise_changed.emit(noise_level)
-	if noise_level >= max_value and not was_too_load:
-		was_too_load = true
+	if noise_level >= max_value and not was_too_loud:
+		was_too_loud = true
 		Game.too_loud.emit()
 
 func _ready() -> void:
@@ -46,8 +46,10 @@ func _process(delta: float) -> void:
 
 	if noise_level >= max_value:
 		set_process(false)
+		# Fill the bar to max before stopping
 		var tween = create_tween()
 		tween.tween_property(self, "value", max_value, 0.2).set_trans(Tween.TRANS_SINE)
+		await tween.finished
 		return
 	
 	if react_timer > 0:
