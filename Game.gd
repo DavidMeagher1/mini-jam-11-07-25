@@ -22,6 +22,7 @@ var active_item: ItemData = null:
 func _ready() -> void:
 	# For testing purposes, give the player a key at start
 	inventory.add_item(load("uid://dcr0oiel6gb4a"))
+	inventory.add_item(load("uid://cr4vs30alatux"))
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item)
