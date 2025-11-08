@@ -1,0 +1,214 @@
+[gd_scene load_steps=13 format=3 uid="uid://blkfwe66tcq06"]
+
+[ext_resource type="Shader" uid="uid://jrubisu233lu" path="res://scenes/death/death.gdshader" id="1_w7y6c"]
+[ext_resource type="Texture2D" uid="uid://dyijkifgwknjk" path="res://scenes/death/blood.aseprite" id="2_1xwd8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjai8"]
+shader = ExtResource("1_w7y6c")
+shader_parameter/speed = 0.3
+shader_parameter/amplitude = 0.01
+shader_parameter/frequency = 30.0
+shader_parameter/alpha = 0.0
+
+[sub_resource type="Animation" id="Animation_w8wr1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 43)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/alpha")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.012617188, 0.012617188, 0.012617188, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0hhgj"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 43), Vector2(128, 87)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/alpha")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.012617188, 0.012617188, 0.012617188, 1), Color(0.2784314, 0.2784314, 0.2784314, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tjai8"]
+resource_name = "throb"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.05, 2.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 87)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/alpha")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjai8"]
+_data = {
+&"RESET": SubResource("Animation_w8wr1"),
+&"fade_in": SubResource("Animation_0hhgj"),
+&"throb": SubResource("Animation_tjai8")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0hhgj"]
+animation = &"fade_in"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w8wr1"]
+animation = &"throb"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tjai8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q1r8t"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6up1m"]
+states/fade_in/node = SubResource("AnimationNodeAnimation_0hhgj")
+states/fade_in/position = Vector2(358.5, 50)
+states/throb/node = SubResource("AnimationNodeAnimation_w8wr1")
+states/throb/position = Vector2(535.5, 123)
+transitions = ["Start", "fade_in", SubResource("AnimationNodeStateMachineTransition_tjai8"), "fade_in", "throb", SubResource("AnimationNodeStateMachineTransition_q1r8t")]
+graph_offset = Vector2(129.78491, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+offset_left = 78.0
+offset_top = 135.0
+offset_right = 122.0
+offset_bottom = 158.0
+rotation = -0.79761547
+scale = Vector2(2, 2)
+text = "DEAD"
+horizontal_alignment = 1
+
+[node name="Blood2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tjai8")
+position = Vector2(128, 43)
+texture = ExtResource("2_1xwd8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Blood2")
+libraries = {
+&"": SubResource("AnimationLibrary_tjai8")
+}
+autoplay = "fade_in"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+root_node = NodePath("../Blood2")
+tree_root = SubResource("AnimationNodeStateMachine_6up1m")
+anim_player = NodePath("../AnimationPlayer")
