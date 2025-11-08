@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bugfsisgk5rsh"]
+[gd_scene load_steps=8 format=3 uid="uid://bugfsisgk5rsh"]
 
 [ext_resource type="Script" uid="uid://bnyrfs7bqocsl" path="res://Inventory/InventoryGrid.gd" id="1_bmn0i"]
 [ext_resource type="PackedScene" uid="uid://cba5rxthdje7v" path="res://Inventory/InventoryItem.tscn" id="2_ffhxf"]
 [ext_resource type="Texture2D" uid="uid://babt3vtphmaxy" path="res://Inventory/UI/InventoryButton.aseprite" id="3_rhal1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhal1"]
+bg_color = Color(0, 0, 0, 0.7176471)
 
 [sub_resource type="InputEventAction" id="InputEventAction_rhal1"]
 action = &"ui_cancel"
@@ -15,28 +18,37 @@ events = [SubResource("InputEventAction_rhal1")]
 atlas = ExtResource("3_rhal1")
 region = Rect2(24, 0, 24, 19)
 
-[node name="VBoxContainer" type="HBoxContainer"]
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhal1")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_8m34x")
 shortcut_in_tooltip = false
 texture_normal = SubResource("AtlasTexture_rhal1")
 
-[node name="InventoryGrid" type="GridContainer" parent="."]
+[node name="InventoryGrid" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 6
 script = ExtResource("1_bmn0i")
 
-[node name="InventoryItem" parent="InventoryGrid" instance=ExtResource("2_ffhxf")]
+[node name="InventoryItem" parent="VBoxContainer/InventoryGrid" instance=ExtResource("2_ffhxf")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="TextureButton" to="." method="hide"]
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="hide"]
