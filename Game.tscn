@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://cav74r102rlch" path="res://Game.gd" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://bpc8ssx1xgwhi" path="res://Inventory/UI/Inventory.tscn" id="2_xkndl"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 script = ExtResource("1_wbfu4")
 
 [node name="Inventory" parent="." instance=ExtResource("2_xkndl")]
