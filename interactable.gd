@@ -1,6 +1,6 @@
 class_name Interactable extends Area2D
 
-enum MouseFilter{
+enum MouseFilter {
 	MOUSE_FILTER_IGNORE = 0,
 	MOUSE_FILTER_PASS = 1,
 	MOUSE_FILTER_STOP = 2,
@@ -13,6 +13,7 @@ signal held(button: int)
 
 @export_group("Mouse", "mouse_")
 @export var mouse_filter: MouseFilter = MouseFilter.MOUSE_FILTER_PASS
+@export var button_pressed: bool = false
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
@@ -34,10 +35,13 @@ func _input_event(viewport, event, shape_idx):
 		return
 	if event is InputEventMouseButton:
 		if event.pressed:
-			clicked.emit(event.button_index)
+			if button_pressed:
+				clicked.emit(event.button_index)
 			inputs[event.button_index] = true
 		else:
 			if is_pressed(event.button_index):
+				if not button_pressed:
+					clicked.emit(event.button_index)
 				inputs[event.button_index] = false
 				released.emit(event.button_index)
 	if event is InputEventMouse:
