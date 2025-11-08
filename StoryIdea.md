@@ -1,0 +1,7 @@
+- Noise triggers murderer to enter room
+- Kill murderer to get key to door and escape
+- Murderer can only be killed with specific weapons
+- Get dog to attack murderer
+- Feed dog
+- Cut off own foot to feed dog
+- Find knife
