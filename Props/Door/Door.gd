@@ -18,4 +18,4 @@ func _on_clicked(_button: int) -> void:
 		opened.emit()
 	else:
 		%SyncingAnimationPlayer.play("Locked")
-		Game.impact.emit(30)
+		Game.impact.emit(70)

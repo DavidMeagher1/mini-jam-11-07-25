@@ -24,6 +24,7 @@ offset_right = 31.0
 mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 custom_minimum_size = Vector2(64, 4)
 layout_mode = 2
 mouse_filter = 2
