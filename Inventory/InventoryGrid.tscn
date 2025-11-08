@@ -14,3 +14,4 @@ script = ExtResource("1_bmn0i")
 
 [node name="InventoryItem" parent="." instance=ExtResource("2_ffhxf")]
 layout_mode = 2
+size_flags_horizontal = 3
