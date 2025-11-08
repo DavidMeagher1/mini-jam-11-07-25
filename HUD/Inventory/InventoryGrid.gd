@@ -7,6 +7,13 @@ func _ready() -> void:
     remove_child(item_template)
     Game.inventory.changed.connect(_on_inventory_changed)
     _on_inventory_changed()
+    visibility_changed.connect(_on_visibility_changed)
+
+func _on_visibility_changed() -> void:
+    if is_visible_in_tree():
+        get_tree().paused = true
+    else:
+        get_tree().paused = false
 
 func _on_inventory_changed() -> void:
     for child in get_children():

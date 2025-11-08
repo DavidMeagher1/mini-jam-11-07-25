@@ -24,6 +24,7 @@ atlas = ExtResource("1_5irsn")
 region = Rect2(24, 0, 24, 19)
 
 [node name="Panel" type="Panel"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

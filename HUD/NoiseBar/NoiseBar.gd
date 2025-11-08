@@ -11,8 +11,6 @@ func set_noise_level(noise: float) -> void:
 		react_timer = 0.3
 	noise_level = noise
 	Game.noise_changed.emit(noise_level)
-	if not visible:
-		visible = true
 	if noise_level >= max_value and not was_too_load:
 		was_too_load = true
 		Game.too_loud.emit()
@@ -25,6 +23,9 @@ func _on_impact(noise: float) -> void:
 	noise_level += noise
 
 func _input(event: InputEvent) -> void:
+	if not visible:
+		visible = true
+		return
 	if event.is_pressed():
 		noise_level += 10.0
 

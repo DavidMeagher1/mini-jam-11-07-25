@@ -22,25 +22,22 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-mouse_filter = 1
 
-[node name="InventoryButton" type="TextureButton" parent="MarginContainer/Control"]
-visible = false
-layout_mode = 1
-offset_right = 24.0
-offset_bottom = 19.0
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 texture_normal = SubResource("AtlasTexture_wf2vw")
 script = ExtResource("2_xjbm4")
 
-[node name="NoiseBar" parent="MarginContainer/Control" instance=ExtResource("3_ne771")]
-layout_mode = 1
+[node name="NoiseBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_ne771")]
+custom_minimum_size = Vector2(64, 4)
+layout_mode = 2
 
 [node name="InventoryGrid" parent="." instance=ExtResource("3_wf2vw")]
 visible = false
 mouse_filter = 0
 
-[connection signal="pressed" from="MarginContainer/Control/InventoryButton" to="MarginContainer" method="hide"]
-[connection signal="pressed" from="MarginContainer/Control/InventoryButton" to="InventoryGrid" method="show"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/InventoryButton" to="MarginContainer" method="hide"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/InventoryButton" to="InventoryGrid" method="show"]
 [connection signal="hidden" from="InventoryGrid" to="MarginContainer" method="show"]
