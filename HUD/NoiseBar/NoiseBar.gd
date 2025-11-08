@@ -46,6 +46,8 @@ func _process(delta: float) -> void:
 
 	if noise_level >= max_value:
 		set_process(false)
+		var tween = create_tween()
+		tween.tween_property(self, "value", max_value, 0.2).set_trans(Tween.TRANS_SINE)
 		return
 	
 	if react_timer > 0:

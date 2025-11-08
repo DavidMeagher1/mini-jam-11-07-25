@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://dm56tynvyhk2f"
+path="res://.godot/imported/Head.aseprite-a10c56c5bf650f482cd0f95e3d93e176.res"
+
+[deps]
+
+source_file="res://Items/Head.aseprite"
+dest_files=["res://.godot/imported/Head.aseprite-a10c56c5bf650f482cd0f95e3d93e176.res"]
+
+[params]
+
+grid_pack=true
