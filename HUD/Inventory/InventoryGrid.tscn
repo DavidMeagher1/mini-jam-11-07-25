@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bugfsisgk5rsh"]
 
-[ext_resource type="Script" uid="uid://bnyrfs7bqocsl" path="res://Inventory/InventoryGrid.gd" id="1_bmn0i"]
-[ext_resource type="PackedScene" uid="uid://cba5rxthdje7v" path="res://Inventory/InventoryItem.tscn" id="2_ffhxf"]
-[ext_resource type="Texture2D" uid="uid://babt3vtphmaxy" path="res://Inventory/UI/InventoryButton.aseprite" id="3_rhal1"]
+[ext_resource type="Texture2D" uid="uid://babt3vtphmaxy" path="res://HUD/Inventory/InventoryButton.aseprite" id="1_5irsn"]
+[ext_resource type="Script" uid="uid://bnyrfs7bqocsl" path="res://HUD/Inventory/InventoryGrid.gd" id="2_endqx"]
+[ext_resource type="PackedScene" uid="uid://cba5rxthdje7v" path="res://HUD/Inventory/InventoryItem.tscn" id="3_uvo6p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhal1"]
 bg_color = Color(0, 0, 0, 0.7176471)
@@ -20,7 +20,7 @@ pressed = true
 events = [SubResource("InputEventAction_rhal1")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhal1"]
-atlas = ExtResource("3_rhal1")
+atlas = ExtResource("1_5irsn")
 region = Rect2(24, 0, 24, 19)
 
 [node name="Panel" type="Panel"]
@@ -58,9 +58,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 6
-script = ExtResource("1_bmn0i")
+script = ExtResource("2_endqx")
 
-[node name="InventoryItem" parent="MarginContainer/VBoxContainer/InventoryGrid" instance=ExtResource("2_ffhxf")]
+[node name="InventoryItem" parent="MarginContainer/VBoxContainer/InventoryGrid" instance=ExtResource("3_uvo6p")]
 layout_mode = 2
 size_flags_horizontal = 3
 

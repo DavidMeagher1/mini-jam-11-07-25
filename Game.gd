@@ -1,6 +1,10 @@
 extends Node
 
+signal impact(noise: float)
+signal too_loud()
+
 var inventory: InventoryData = InventoryData.new()
+var was_too_load: bool = false
 var active_item: ItemData = null:
 	get:
 		if cursor:
@@ -9,9 +13,13 @@ var active_item: ItemData = null:
 	set(value):
 		if cursor:
 			grab_item(value)
+
+
 @onready var cursor: Area2D = %Cursor
 
+
 func _ready() -> void:
+	# For testing purposes, give the player a key at start
 	inventory.add_item(load("uid://dcr0oiel6gb4a"))
 
 func has_item(item: ItemData) -> bool:

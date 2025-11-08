@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cba5rxthdje7v"]
 
-[ext_resource type="Script" uid="uid://cklutflkd0lby" path="res://Inventory/InventoryItem.gd" id="1_q4euc"]
+[ext_resource type="Script" uid="uid://cklutflkd0lby" path="res://HUD/Inventory/InventoryItem.gd" id="1_f4i0a"]
 
 [node name="InventoryItem" type="TextureButton"]
 mouse_filter = 1
 stretch_mode = 5
-script = ExtResource("1_q4euc")
+script = ExtResource("1_f4i0a")

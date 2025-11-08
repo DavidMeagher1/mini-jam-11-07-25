@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://babt3vtphmaxy"
+path="res://.godot/imported/InventoryButton.aseprite-ce037b7b7790684caccf554271d856aa.res"
+
+[deps]
+
+source_file="res://HUD/Inventory/InventoryButton.aseprite"
+dest_files=["res://.godot/imported/InventoryButton.aseprite-ce037b7b7790684caccf554271d856aa.res"]
+
+[params]
+
+grid_pack=true
