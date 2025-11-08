@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpc8ssx1xgwhi"]
+[gd_scene load_steps=5 format=3 uid="uid://bpc8ssx1xgwhi"]
 
 [ext_resource type="Texture2D" uid="uid://babt3vtphmaxy" path="res://Inventory/UI/InventoryButton.aseprite" id="1_ahk1o"]
 [ext_resource type="Script" uid="uid://bfs8usm44r3kg" path="res://Inventory/UI/InventoryButton.gd" id="2_xjbm4"]
 [ext_resource type="PackedScene" uid="uid://bugfsisgk5rsh" path="res://Inventory/InventoryGrid.tscn" id="3_wf2vw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf2vw"]
+atlas = ExtResource("1_ahk1o")
+region = Rect2(0, 0, 24, 19)
 
 [node name="Inventory" type="CanvasLayer"]
 
@@ -19,7 +23,7 @@ mouse_filter = 1
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 19.0
-texture_normal = ExtResource("1_ahk1o")
+texture_normal = SubResource("AtlasTexture_wf2vw")
 script = ExtResource("2_xjbm4")
 
 [node name="InventoryGrid" parent="Control" instance=ExtResource("3_wf2vw")]

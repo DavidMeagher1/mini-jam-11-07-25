@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bugfsisgk5rsh"]
+[gd_scene load_steps=7 format=3 uid="uid://bugfsisgk5rsh"]
 
 [ext_resource type="Script" uid="uid://bnyrfs7bqocsl" path="res://Inventory/InventoryGrid.gd" id="1_bmn0i"]
 [ext_resource type="PackedScene" uid="uid://cba5rxthdje7v" path="res://Inventory/InventoryItem.tscn" id="2_ffhxf"]
@@ -11,15 +11,26 @@ pressed = true
 [sub_resource type="Shortcut" id="Shortcut_8m34x"]
 events = [SubResource("InputEventAction_rhal1")]
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhal1"]
+atlas = ExtResource("3_rhal1")
+region = Rect2(24, 0, 24, 19)
+
+[node name="VBoxContainer" type="HBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+shortcut = SubResource("Shortcut_8m34x")
+shortcut_in_tooltip = false
+texture_normal = SubResource("AtlasTexture_rhal1")
+
 [node name="InventoryGrid" type="GridContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 6
 script = ExtResource("1_bmn0i")
@@ -27,10 +38,5 @@ script = ExtResource("1_bmn0i")
 [node name="InventoryItem" parent="InventoryGrid" instance=ExtResource("2_ffhxf")]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 2
-shortcut = SubResource("Shortcut_8m34x")
-texture_normal = ExtResource("3_rhal1")
 
 [connection signal="pressed" from="TextureButton" to="." method="hide"]
