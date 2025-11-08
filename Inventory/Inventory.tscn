@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpc8ssx1xgwhi"]
+
+[ext_resource type="Texture2D" uid="uid://babt3vtphmaxy" path="res://Inventory/InventoryButton.aseprite" id="1_ahk1o"]
+[ext_resource type="Script" uid="uid://bfs8usm44r3kg" path="res://Inventory/InventoryButton.gd" id="2_xjbm4"]
+
+[node name="Inventory" type="CanvasLayer"]
+
+[node name="InventoryButton" type="TextureButton" parent="."]
+offset_right = 24.0
+offset_bottom = 19.0
+texture_normal = ExtResource("1_ahk1o")
+script = ExtResource("2_xjbm4")
