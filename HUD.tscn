@@ -26,7 +26,6 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 
 [node name="InventoryButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_wf2vw")
 script = ExtResource("2_xjbm4")

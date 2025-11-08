@@ -1,19 +1,15 @@
 [remap]
 
-importer="MeagherGames.aseprite.Scene"
-type="PackedScene"
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
 uid="uid://oabi2lphuv6d"
-path="res://.godot/imported/knife.aseprite-1e0b4e777a676a26e9a38e9da17cd67b.tscn"
+path="res://.godot/imported/knife.aseprite-1e0b4e777a676a26e9a38e9da17cd67b.res"
 
 [deps]
 
 source_file="res://assets/knife.aseprite"
-dest_files=["res://.godot/imported/knife.aseprite-1e0b4e777a676a26e9a38e9da17cd67b.tscn"]
+dest_files=["res://.godot/imported/knife.aseprite-1e0b4e777a676a26e9a38e9da17cd67b.res"]
 
 [params]
 
-use_canvas_group=true
-centered=true
-layers=false
-tiles=false
-tile_set_path="res://assets/knife_tileset.tres"
+grid_pack=true

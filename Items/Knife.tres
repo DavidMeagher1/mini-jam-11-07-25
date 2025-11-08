@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://006mkxspmx88"]
+
+[ext_resource type="Texture2D" uid="uid://oabi2lphuv6d" path="res://assets/knife.aseprite" id="1_2kb1c"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="2_1mx06"]
+
+[resource]
+script = ExtResource("2_1mx06")
+name = "Knife"
+icon = ExtResource("1_2kb1c")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dcr0oiel6gb4a"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dcr0oiel6gb4a"]
 
 [ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_skcct"]
 [ext_resource type="Texture2D" uid="uid://clbp0fvlcxtun" path="res://Items/Key.aseprite" id="1_vjcho"]
+[ext_resource type="Resource" uid="uid://cr4vs30alatux" path="res://Items/Head.tres" id="3_w0vne"]
+[ext_resource type="Resource" uid="uid://006mkxspmx88" path="res://Items/Knife.tres" id="4_w0vne"]
 
 [resource]
 script = ExtResource("1_skcct")
 name = "Key"
-description = "The Key"
 icon = ExtResource("1_vjcho")
+recipes = Dictionary[ExtResource("1_skcct"), ExtResource("1_skcct")]({
+ExtResource("3_w0vne"): ExtResource("4_w0vne")
+})
 metadata/_custom_type_script = "uid://bf6auountwnjf"
