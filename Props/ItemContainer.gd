@@ -1,4 +1,4 @@
-class_name Container extends Interactable
+class_name ItemContainer extends Interactable
 
 @export var items: Array[ItemData] = []
 
@@ -9,5 +9,5 @@ func _on_clicked() -> void:
     if Game.active_item:
         return
     var item = items.pop_front()
-    ifitem:
+    if item:
         Game.grab_item(item)
