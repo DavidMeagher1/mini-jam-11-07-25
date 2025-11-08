@@ -6,15 +6,26 @@
 
 [node name="Inventory" type="CanvasLayer"]
 
-[node name="InventoryButton" type="TextureButton" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="InventoryButton" type="TextureButton" parent="Control"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 19.0
 texture_normal = ExtResource("1_ahk1o")
 script = ExtResource("2_xjbm4")
 
-[node name="InventoryGrid" parent="." instance=ExtResource("3_wf2vw")]
+[node name="InventoryGrid" parent="Control" instance=ExtResource("3_wf2vw")]
 visible = false
+layout_mode = 1
 
-[connection signal="pressed" from="InventoryButton" to="InventoryButton" method="hide"]
-[connection signal="pressed" from="InventoryButton" to="InventoryGrid" method="show"]
-[connection signal="hidden" from="InventoryGrid" to="InventoryButton" method="show"]
+[connection signal="pressed" from="Control/InventoryButton" to="Control/InventoryButton" method="hide"]
+[connection signal="pressed" from="Control/InventoryButton" to="Control/InventoryGrid" method="show"]
+[connection signal="hidden" from="Control/InventoryGrid" to="Control/InventoryButton" method="show"]

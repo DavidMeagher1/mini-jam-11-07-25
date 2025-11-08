@@ -18,11 +18,6 @@ func _on_inventory_changed() -> void:
         add_child(item_instance)
 
 func _gui_input(event: InputEvent) -> void:
-    if event.is_pressed() and Game.cursor.current_item:
-        Game.inventory.add_item(Game.cursor.current_item)
-        Game.cursor.current_item = null
+    if event.is_pressed() and Game.active_item:
+        Game.drop_item()
         accept_event()
-
-func _unhandled_input(event: InputEvent) -> void:
-    if event.is_action_pressed("ui_cancel"):
-        hide()

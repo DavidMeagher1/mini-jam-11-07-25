@@ -9,9 +9,12 @@ script/source = "extends Node
 @onready var background: Sprite2D = $Background
 
 func _on_interactable_clicked(button: int) -> void:
-	Game.cursor.current_item = load(\"uid://bfnq3rjfl7phv\")
-
-
+	var item = load(\"uid://bfnq3rjfl7phv\")
+	if Game.active_item:
+		if Game.active_item == item: Game.consume_active_item()
+	else:
+		Game.grab_item(item)
+		
 func _on_light_switch_state_changed(new_state: int) -> void:
 	background.frame = new_state
 "
@@ -34,13 +37,6 @@ metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 shape = SubResource("CircleShape2D_r0du0")
-
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="LightSwitch" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(240, 39)
 
 [connection signal="clicked" from="Interactable" to="." method="_on_interactable_clicked"]
 [connection signal="state_changed" from="LightSwitch" to="." method="_on_light_switch_state_changed"]
