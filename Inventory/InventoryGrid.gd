@@ -19,7 +19,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func _on_inventory_changed() -> void:
     for child in get_children():
-        remove_child(child)
         child.queue_free()
 
     for item in Game.inventory.items:
