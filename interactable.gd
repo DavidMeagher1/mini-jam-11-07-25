@@ -7,6 +7,7 @@ enum MouseFilter {
 }
 
 signal clicked(button: int)
+signal pressed(button: int)
 signal released(button: int)
 signal held(button: int)
 
@@ -23,7 +24,6 @@ func _ready():
 	input_pickable = true
 	mouse_exited.connect(reset_inputs)
 
-
 func _process(_delta: float) -> void:
 	for button in inputs.keys():
 		if is_pressed(button):
@@ -35,22 +35,25 @@ func _input_event(viewport, event, shape_idx):
 		return
 	if event is InputEventMouseButton:
 		if event.pressed:
+			inputs[event.button_index] = true
+			pressed.emit(event.button_index)
+
 			if button_pressed:
 				clicked.emit(event.button_index)
-			inputs[event.button_index] = true
-		else:
-			if is_pressed(event.button_index):
-				if not button_pressed:
-					clicked.emit(event.button_index)
-				inputs[event.button_index] = false
-				released.emit(event.button_index)
+		
+		elif is_pressed(event.button_index):
+			inputs[event.button_index] = false
+			released.emit(event.button_index)
+
+			if not button_pressed:
+				clicked.emit(event.button_index)
+	
+	var parent = get_parent()
 	if event is InputEventMouse:
 		if mouse_filter == MouseFilter.MOUSE_FILTER_STOP:
 			viewport.set_input_as_handled()
-		elif mouse_filter == MouseFilter.MOUSE_FILTER_PASS:
-			var parent = get_parent()
-			if parent is Interactable:
-				parent._input_event(viewport, event, shape_idx)
+		elif mouse_filter == MouseFilter.MOUSE_FILTER_PASS and parent is Interactable:
+			parent._input_event(viewport, event, shape_idx)
 
 func is_pressed(button: int) -> bool:
 	return inputs.has(button) and inputs[button]
