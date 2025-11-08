@@ -5,8 +5,9 @@ signal noise_changed(noise_level: float) # Emitted when the noise level changes
 signal too_loud() # Emitted when the player makes too much noise
 
 
-var inventory: InventoryData = InventoryData.new()
 var was_too_load: bool = false
+var deaths: int = 0
+var inventory: InventoryData = InventoryData.new()
 var active_item: ItemData = null:
 	get:
 		if cursor:
@@ -15,7 +16,6 @@ var active_item: ItemData = null:
 	set(value):
 		if cursor:
 			grab_item(value)
-
 
 @onready var cursor: Area2D = %Cursor
 

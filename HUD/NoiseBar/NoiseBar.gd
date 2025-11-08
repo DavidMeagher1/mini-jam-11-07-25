@@ -1,6 +1,6 @@
 extends ProgressBar
 
-const NOISE_FALLOFF: float = 2.0
+const NOISE_FALLOFF: float = 5.0
 const BASIC_NOISE: float = 2.0
 
 var noise_level: float = 0.0: set = set_noise_level
