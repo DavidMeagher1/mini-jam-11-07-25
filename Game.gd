@@ -22,5 +22,7 @@ func consume_active_item() -> void:
 	if cursor.current_item:
 		cursor.current_item = null
 
-func has_active_item() -> bool:
+func has_active_item(item_data: ItemData = null) -> bool:
+	if item_data:
+		return cursor.current_item == item_data
 	return cursor.current_item != null
