@@ -1,6 +1,7 @@
 extends ProgressBar
 
 const NOISE_FALLOFF: float = 2.0
+const BASIC_NOISE: float = 2.0
 
 var noise_level: float = 0.0: set = set_noise_level
 var react_timer: float = 0.0
@@ -26,7 +27,7 @@ func _input(event: InputEvent) -> void:
 		visible = true
 		return
 	if event.is_pressed():
-		noise_level += 10.0
+		noise_level += BASIC_NOISE
 
 func _process(delta: float) -> void:
 	if int(noise_level) != int(self.value):
