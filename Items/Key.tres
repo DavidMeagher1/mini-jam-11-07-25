@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dcr0oiel6gb4a"]
+
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_skcct"]
+[ext_resource type="Texture2D" uid="uid://clbp0fvlcxtun" path="res://Items/Key.aseprite" id="1_vjcho"]
+
+[resource]
+script = ExtResource("1_skcct")
+name = "Key"
+description = "The Key"
+icon = ExtResource("1_vjcho")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

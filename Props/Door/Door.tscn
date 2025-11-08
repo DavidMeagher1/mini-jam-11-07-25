@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd0rs1feq5e5p"]
+
+[ext_resource type="PackedScene" uid="uid://cvw6r7weck2yf" path="res://Props/Door/Door.aseprite" id="1_83kqr"]
+[ext_resource type="Script" uid="uid://degp4c6edkd2y" path="res://Props/Door/Door.gd" id="1_sqlwo"]
+[ext_resource type="Script" uid="uid://dlt1dvr051xmf" path="res://addons/aseprite-importer/Tools/SyncingAnimationPlayer.gd" id="2_4gcux"]
+[ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://interactable.gd" id="4_q61yq"]
+
+[sub_resource type="Animation" id="Animation_sqlwo"]
+length = 0.5
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Locked"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_q61yq"]
+length = 0.1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Open"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37iyj"]
+_data = {
+&"Locked": SubResource("Animation_sqlwo"),
+&"Open": SubResource("Animation_q61yq")
+}
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_sqlwo")
+
+[node name="Door" parent="." instance=ExtResource("1_83kqr")]
+region_rect = Rect2(0, 112, 32, 111)
+
+[node name="SyncingAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_37iyj")
+}
+script = ExtResource("2_4gcux")
+source_animation_player = NodePath("../Door/AnimationPlayer")
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("4_q61yq")
+metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
+
+[connection signal="clicked" from="Interactable" to="." method="_on_clicked"]
+
+[editable path="Door"]
