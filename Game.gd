@@ -14,6 +14,9 @@ var active_item: ItemData = null:
 func _ready() -> void:
 	inventory.add_item(load("uid://dcr0oiel6gb4a"))
 
+func has_item(item: ItemData) -> bool:
+	return inventory.has_item(item)
+
 func grab_item(item: ItemData, from_inventory: bool = false) -> void:
 	if active_item:
 		drop_item()
