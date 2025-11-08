@@ -49,7 +49,6 @@ func _process(delta: float) -> void:
 		# Fill the bar to max before stopping
 		var tween = create_tween()
 		tween.tween_property(self, "value", max_value, 0.2).set_trans(Tween.TRANS_SINE)
-		await tween.finished
 		return
 	
 	if react_timer > 0:

@@ -5,7 +5,6 @@ signal noise_changed(noise_level: float) # Emitted when the noise level changes
 signal too_loud() # Emitted when the player makes too much noise
 
 
-var was_too_loud: bool = false
 var deaths: int = 0
 var inventory: InventoryData = InventoryData.new()
 var active_item: ItemData = null:
