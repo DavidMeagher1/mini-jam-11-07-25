@@ -61,3 +61,7 @@ func spawn_puff(parent: Node, position: Vector2) -> void:
 	if puff_instance:
 		puff_instance.global_position = position
 		parent.add_child(puff_instance)
+
+func die() -> void:
+	deaths += 1
+	get_tree().reload_current_scene.call_deferred()

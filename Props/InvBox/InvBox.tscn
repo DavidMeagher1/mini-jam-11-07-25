@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbr57v1gep3cy"]
+[gd_scene load_steps=7 format=3 uid="uid://bbr57v1gep3cy"]
 
 [ext_resource type="Script" uid="uid://cspbcd02ger4o" path="res://Props/InvBox/InvBox.gd" id="1_8ec37"]
 [ext_resource type="Script" uid="uid://ctjcoj4ssevwg" path="res://Props/Spawner.gd" id="1_krnal"]
 [ext_resource type="Resource" uid="uid://006mkxspmx88" path="res://Items/Knife.tres" id="2_krnal"]
 [ext_resource type="PackedScene" uid="uid://chlclm0gjjymw" path="res://Props/InvBox/InvBox.aseprite" id="3_deep0"]
 [ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="4_5sq47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krnal"]
+size = Vector2(20, 16)
 
 [node name="InvBox" type="Node2D"]
 script = ExtResource("1_krnal")
@@ -20,5 +23,9 @@ item = ExtResource("2_krnal")
 [node name="Interactable" type="Area2D" parent="Node2D"]
 script = ExtResource("4_5sq47")
 metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Interactable"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_krnal")
 
 [connection signal="clicked" from="Node2D/Interactable" to="Node2D" method="_on_interactable_clicked"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=6 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://assets/room.aseprite" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://ccd32q8tyxgmk" path="res://Props/Eye/Eye.tscn" id="3_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bbr57v1gep3cy" path="res://Props/InvBox/InvBox.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://pfd5m2d4k8tl" path="res://Murderer/Muderer.tscn" id="5_fos0i"]
 
 [node name="Main" type="Node2D"]
 
@@ -39,6 +40,8 @@ position = Vector2(183, 85)
 
 [node name="InvBox" parent="." instance=ExtResource("4_cm0pq")]
 position = Vector2(128, 157)
+
+[node name="Muderer" parent="." instance=ExtResource("5_fos0i")]
 
 [connection signal="ready" from="CanvasModulate" to="CanvasModulate" method="show"]
 [connection signal="opened" from="Door" to="CanvasModulate" method="set_color" binds= [Color(1, 1, 1, 1)]]

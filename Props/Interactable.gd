@@ -45,3 +45,4 @@ func is_pressed(button: int) -> bool:
 
 func reset_inputs() -> void:
 	inputs.clear()
+	released.emit(-1)

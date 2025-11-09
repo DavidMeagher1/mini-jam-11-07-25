@@ -1,5 +1,6 @@
 class_name Spawner extends Node2D
 
+@export var enabled:bool = true
 @export_group("Requirements", "required_")
 @export var required_items: Array[ItemData] = []
 @export var required_deaths: int = 0

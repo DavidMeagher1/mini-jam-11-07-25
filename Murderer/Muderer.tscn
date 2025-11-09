@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://pfd5m2d4k8tl"]
+
+[ext_resource type="PackedScene" uid="uid://w7b4biodiorb" path="res://assets/murderer.aseprite" id="1_fhv73"]
+[ext_resource type="Script" uid="uid://bjocg360pd51f" path="res://Murderer/Muderer.gd" id="1_urcot"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="2_jbxtt"]
+[ext_resource type="Texture2D" uid="uid://oabi2lphuv6d" path="res://assets/knife.aseprite" id="2_urcot"]
+[ext_resource type="Resource" uid="uid://006mkxspmx88" path="res://Items/Knife.tres" id="3_7vlad"]
+[ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="3_kle12"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhv73"]
+radius = 24.63
+
+[node name="Muderer" type="Node2D"]
+script = ExtResource("1_urcot")
+restricted_items = Array[ExtResource("2_jbxtt")]([ExtResource("3_7vlad")])
+metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
+
+[node name="murderer" parent="." instance=ExtResource("1_fhv73")]
+autoplay = "RESET"
+frame_progress = 0.29856795
+
+[node name="Face" type="Area2D" parent="murderer"]
+script = ExtResource("3_kle12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="murderer/Face"]
+shape = SubResource("CircleShape2D_fhv73")
+
+[node name="Knife" type="Sprite2D" parent="."]
+position = Vector2(-53, 13)
+texture = ExtResource("2_urcot")
+
+[node name="Area2D" type="Area2D" parent="Knife"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Knife/Area2D"]
+position = Vector2(-5, -0.75)
+polygon = PackedVector2Array(-21, -4.25, -5, -21.25, 18, 2.75, 10, 22.75)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="clicked" from="murderer/Face" to="." method="_on_face_clicked"]
+[connection signal="held" from="murderer/Face" to="." method="_on_face_held"]
+[connection signal="mouse_entered" from="murderer/Face" to="." method="_on_mouse_entered"]
+[connection signal="released" from="murderer/Face" to="." method="_on_face_released"]
+[connection signal="mouse_entered" from="Knife/Area2D" to="." method="_on_mouse_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
