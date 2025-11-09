@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://oabi2lphuv6d"
+path="res://.godot/imported/knife.aseprite-b271dfa6b4ae74d9c83e431e09fa2cd4.res"
+
+[deps]
+
+source_file="res://Items/knife.aseprite"
+dest_files=["res://.godot/imported/knife.aseprite-b271dfa6b4ae74d9c83e431e09fa2cd4.res"]
+
+[params]
+
+grid_pack=true

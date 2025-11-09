@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://c58v07s7ypbbp"
+path="res://.godot/imported/strange_seed.aseprite-8b1e8750df53a2e892d3df5a48f6c399.res"
+
+[deps]
+
+source_file="res://Items/strange_seed.aseprite"
+dest_files=["res://.godot/imported/strange_seed.aseprite-8b1e8750df53a2e892d3df5a48f6c399.res"]
+
+[params]
+
+grid_pack=true

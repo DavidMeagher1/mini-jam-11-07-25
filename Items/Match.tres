@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://us17iqe7vkr6"]
+
+[ext_resource type="Texture2D" uid="uid://bfxtmxh8g87ib" path="res://Items/match.aseprite" id="1_2k2es"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_51lhx"]
+
+[resource]
+script = ExtResource("1_51lhx")
+name = "Match"
+icon = ExtResource("1_2k2es")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

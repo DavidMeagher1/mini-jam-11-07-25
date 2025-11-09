@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bsn0h3q7a356h"]
+
+[ext_resource type="Texture2D" uid="uid://c58v07s7ypbbp" path="res://Items/strange_seed.aseprite" id="1_3rvye"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_aq5qx"]
+
+[resource]
+script = ExtResource("1_aq5qx")
+name = "StrangeSeed"
+icon = ExtResource("1_3rvye")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

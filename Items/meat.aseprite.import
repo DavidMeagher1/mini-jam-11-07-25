@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://ceo0kkh8mv0vq"
+path="res://.godot/imported/meat.aseprite-aced974a768c2bd406f45afce2d9ed98.res"
+
+[deps]
+
+source_file="res://Items/meat.aseprite"
+dest_files=["res://.godot/imported/meat.aseprite-aced974a768c2bd406f45afce2d9ed98.res"]
+
+[params]
+
+grid_pack=true
