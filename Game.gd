@@ -1,18 +1,18 @@
 extends Node
 
 enum DeathCauses {
-    UNKNOWN,
-    MURDERER,
-    DOG,
-    SUICIDE_KNIFE_HEAD,
-    SUICIDE_HOLE,
-    SUICIDE_FIRE_HOLE
+	UNKNOWN,
+	MURDERER,
+	DOG,
+	SUICIDE_KNIFE_HEAD,
+	SUICIDE_HOLE,
+	SUICIDE_FIRE_HOLE
 }
 
 enum Endings {
-    LOVE,
-    LOSS,
-    DEATH
+	LOVE,
+	LOSS,
+	DEATH
 }
 
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
@@ -32,13 +32,13 @@ var deaths: int = 0
 var deaths_by: Dictionary[DeathCauses, int] = {}
 var inventory: InventoryData = InventoryData.new()
 var active_item: ItemData = null:
-    get:
-        if cursor:
-            return cursor.current_item
-        return null
-    set(value):
-        if cursor:
-            grab_item(value)
+	get:
+		if cursor:
+			return cursor.current_item
+		return null
+	set(value):
+		if cursor:
+			grab_item(value)
 
 var game_state: Dictionary = {}
 
@@ -49,40 +49,40 @@ func _ready() -> void:
 	inventory.add_item(head_item) # Head
 
 func has_item(item: ItemData) -> bool:
-    return inventory.has_item(item) or (active_item == item)
+	return inventory.has_item(item) or (active_item == item)
 
 func grab_item(item: ItemData, from_inventory: bool = false) -> void:
-    if active_item:
-        drop_item()
-    cursor.current_item = item
-    active_item_changed.emit(item)
-    if item and from_inventory:
-        inventory.remove_item(item)
+	if active_item:
+		drop_item()
+	cursor.current_item = item
+	active_item_changed.emit(item)
+	if item and from_inventory:
+		inventory.remove_item(item)
 
 func drop_item() -> void:
-    if cursor.current_item:
-        inventory.add_item(cursor.current_item)
-        cursor.current_item = null
+	if cursor.current_item:
+		inventory.add_item(cursor.current_item)
+		cursor.current_item = null
 
 func craft_with_active_item(item: ItemData) -> ItemData:
-    var recipe_output = active_item.get_crafted_item(item)
-    var last_active_item = active_item
-    if recipe_output:
-        consume_active_item()
-        inventory.remove_item(item)
-        inventory.add_item(recipe_output)
-        Game.item_crafted.emit(last_active_item, item, recipe_output)
-    return recipe_output
+	var recipe_output = active_item.get_crafted_item(item)
+	var last_active_item = active_item
+	if recipe_output:
+		consume_active_item()
+		inventory.remove_item(item)
+		inventory.add_item(recipe_output)
+		Game.item_crafted.emit(last_active_item, item, recipe_output)
+	return recipe_output
 
 func consume_active_item() -> void:
-    if cursor.current_item:
-        cursor.current_item = null
+	if cursor.current_item:
+		cursor.current_item = null
 
 func spawn_puff(parent: Node, position: Vector2) -> void:
-    var puff_instance = puff_scene.instantiate()
-    if puff_instance:
-        puff_instance.global_position = position
-        parent.add_child(puff_instance)
+	var puff_instance = puff_scene.instantiate()
+	if puff_instance:
+		puff_instance.global_position = position
+		parent.add_child(puff_instance)
 
 func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	if is_dead:
@@ -97,11 +97,11 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	end.emit(Endings.DEATH)
 
 func reload() -> void:
-    get_tree().paused = false
-    get_tree().reload_current_scene()
-    is_dead = false
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	is_dead = false
 
 func _on_item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) -> void:
-    if itemA.name == "Knife" or itemB.name == "Knife":
-        if itemA.name == "Head" or itemB.name == "Head":
-            die.call_deferred(DeathCauses.SUICIDE_KNIFE_HEAD)
+	if itemA.name == "Knife" or itemB.name == "Knife":
+		if itemA.name == "Head" or itemB.name == "Head":
+			die.call_deferred(DeathCauses.SUICIDE_KNIFE_HEAD)
