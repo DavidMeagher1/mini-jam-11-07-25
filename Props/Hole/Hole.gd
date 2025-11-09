@@ -8,19 +8,22 @@ var poop_amount:int = 0
 @onready var junk_hole_sprite:Sprite2D = $JunkHoleSprite
 @onready var poop_hole_sprite:Sprite2D = $PoopHoleSprite
 func _on_interactable_clicked(_button:int) -> void:
-	if Game.active_item == null:
-		return
-	if Game.active_item.name == "Junk":
-		junk_amount += 1
-		Game.consume_active_item()
-		if junk_amount >= junk_needed:
-			interactable.disabled = true
-			junk_hole_sprite.visible = true
-			junk_hole_sprite.get_node("Interactable").disabled = false
-	elif Game.active_item.name == "Poop":
-		poop_amount += 1
-		Game.consume_active_item()
-		if poop_amount >= poop_needed:
-			interactable.disabled = true
-			poop_hole_sprite.visible = true
-			poop_hole_sprite.get_node("Interactable").disabled = false
+    if Game.active_item == null:
+        return
+    if Game.active_item.name == "Junk":
+        junk_amount += 1
+        Game.consume_active_item()
+        if junk_amount >= junk_needed:
+            interactable.disabled = true
+            junk_hole_sprite.visible = true
+            junk_hole_sprite.get_node("Interactable").disabled = false
+    elif Game.active_item.name == "Poop":
+        poop_amount += 1
+        Game.consume_active_item()
+        if poop_amount >= poop_needed:
+            interactable.disabled = true
+            poop_hole_sprite.visible = true
+            poop_hole_sprite.get_node("Interactable").disabled = false
+    elif Game.active_item.name == "Head":
+        Game.consume_active_item()
+        Game.die(Game.DeathCauses.SUICIDE_HOLE)
