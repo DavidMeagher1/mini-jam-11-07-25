@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=5 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://assets/room.aseprite" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://ccd32q8tyxgmk" path="res://Props/Eye/Eye.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://bbr57v1gep3cy" path="res://Props/InvBox/InvBox.tscn" id="4_cm0pq"]
 
 [node name="Main" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -34,6 +36,9 @@ position = Vector2(212, 52)
 
 [node name="Eye4" parent="Eyes" instance=ExtResource("3_r0du0")]
 position = Vector2(183, 85)
+
+[node name="InvBox" parent="." instance=ExtResource("4_cm0pq")]
+position = Vector2(128, 157)
 
 [connection signal="ready" from="CanvasModulate" to="CanvasModulate" method="show"]
 [connection signal="opened" from="Door" to="CanvasModulate" method="set_color" binds= [Color(1, 1, 1, 1)]]

@@ -2,6 +2,7 @@ extends Node
 
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
 
+signal active_item_changed(item: ItemData) # Emitted when the active item changes
 signal impact(noise: float) # Will add noise to the noise bar
 signal noise_changed(noise_level: float) # Emitted when the noise level changes
 signal too_loud() # Emitted when the player makes too much noise
@@ -34,6 +35,7 @@ func grab_item(item: ItemData, from_inventory: bool = false) -> void:
 	if active_item:
 		drop_item()
 	cursor.current_item = item
+	active_item_changed.emit(item)
 	if item and from_inventory:
 		inventory.remove_item(item)
 
