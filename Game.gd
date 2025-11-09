@@ -84,7 +84,6 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	if blood_instance:
 		get_tree().current_scene.add_child(blood_instance,true)
 		var timer = get_tree().create_timer(0.3,true,false,true)
-		timer.timeout.connect(blood_instance.queue_free, CONNECT_DEFERRED)
 		await timer.timeout
 		get_tree().reload_current_scene.call_deferred()
 		died.emit()
