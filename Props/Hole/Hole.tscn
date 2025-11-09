@@ -77,6 +77,7 @@ texture = SubResource("GradientTexture2D_fhff2")
 script = ExtResource("7_fhff2")
 
 [node name="PoopHoleSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("9_2b2p6")
 script = ExtResource("10_bostc")
 
