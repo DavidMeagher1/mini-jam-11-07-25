@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://mr1rdxgncvu3"]
+
+[ext_resource type="Script" uid="uid://dkbg0mvvtmwhr" path="res://Props/Dog/DogInteractable.gd" id="1_mmwip"]
+[ext_resource type="PackedScene" uid="uid://c30luxxty8qvm" path="res://Props/Dog/dog.aseprite" id="4_bjgqs"]
+[ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="5_ls3js"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6cphg"]
+radius = 19.313208
+
+[node name="Dog_Interactable" type="Node2D"]
+script = ExtResource("1_mmwip")
+metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
+
+[node name="dog" parent="." instance=ExtResource("4_bjgqs")]
+scale = Vector2(0.25, 0.25)
+
+[node name="paws" parent="dog" index="0"]
+visible = false
+
+[node name="tail" parent="dog" index="1"]
+visible = false
+
+[node name="body" parent="dog" index="2"]
+visible = false
+
+[node name="head" parent="dog" index="3"]
+visible = false
+
+[node name="face" parent="dog" index="5"]
+visible = false
+
+[node name="ears" parent="dog" index="6"]
+visible = false
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("5_ls3js")
+metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_6cphg")
+
+[connection signal="clicked" from="Interactable" to="." method="_on_interactable_clicked"]
+
+[editable path="dog"]
