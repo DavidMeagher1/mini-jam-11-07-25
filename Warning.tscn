@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://vkj6dqvg750q"]
+
+[ext_resource type="Script" uid="uid://5n2ayh4isw7m" path="res://Warning.gd" id="1_vgl5h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ncvi5"]
+
+[node name="Label" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Content Warning: This game contains depictions of graphic violence and self-harm."
+label_settings = SubResource("LabelSettings_ncvi5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("1_vgl5h")
