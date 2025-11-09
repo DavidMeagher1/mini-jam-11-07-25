@@ -25,22 +25,7 @@ metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
 use_parent_material = true
 scale = Vector2(0.25, 0.25)
 
-[node name="paws" parent="dog" index="0"]
-visible = false
-
-[node name="tail" parent="dog" index="1"]
-visible = false
-
-[node name="body" parent="dog" index="2"]
-visible = false
-
-[node name="head" parent="dog" index="3"]
-visible = false
-
-[node name="face" parent="dog" index="5"]
-visible = false
-
-[node name="ears" parent="dog" index="6"]
+[node name="body" parent="dog" index="0"]
 visible = false
 
 [node name="Interactable" type="Area2D" parent="."]

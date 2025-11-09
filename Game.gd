@@ -30,6 +30,8 @@ var active_item: ItemData = null:
 		if cursor:
 			grab_item(value)
 
+var game_state: Dictionary = {}
+
 @onready var cursor: Area2D = %Cursor
 
 
@@ -37,7 +39,7 @@ func _ready() -> void:
 	inventory.add_item(load("uid://cr4vs30alatux")) # Head
 
 func has_item(item: ItemData) -> bool:
-	return inventory.has_item(item)
+	return inventory.has_item(item) or (active_item == item)
 
 func grab_item(item: ItemData, from_inventory: bool = false) -> void:
 	if active_item:

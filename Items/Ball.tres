@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://e7n2xso3b2rc"]
+
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_771pg"]
+[ext_resource type="Texture2D" uid="uid://w3kwi1u7tyr" path="res://Items/Ball.aseprite" id="1_tb08k"]
+
+[resource]
+script = ExtResource("1_771pg")
+name = "Ball"
+icon = ExtResource("1_tb08k")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

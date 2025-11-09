@@ -73,11 +73,7 @@ func _import(source_file, save_path, options, _platform_variants, _gen_files):
 		
 		for layer in data.layers:
 			var layer_node = create_layer(layer, atlas_texture, data.tile_sets, options)
-			if options.get("groups", false):
-				create_group_node(layer.group, layer_node, root)
-			else:
-				root.add_child(layer_node, true)
-				layer_node.owner = root
+			create_group_node(layer.group, layer_node, root)
 	else:
 		root = create_layer(data.layers[0], atlas_texture, data.tile_sets, options)
 		
@@ -219,7 +215,7 @@ func create_tile_map_layer(layer: Dictionary, atlas_texture: Texture, tile_sets:
 
 	var tile_set: TileSet = null
 	var tile_set_path = options.get("tile_set_path", "")
-	if options.get("export_tileset", true) and not tile_set_path == "" and FileAccess.file_exists(tile_set_path):
+	if options.get("tiles", true) and not tile_set_path == "" and FileAccess.file_exists(tile_set_path):
 		tile_set = load(tile_set_path)
 	
 	var tile_set_data = tile_sets[layer.tile_set]
@@ -246,7 +242,7 @@ func create_tile_map_layer(layer: Dictionary, atlas_texture: Texture, tile_sets:
 		else:
 			update_tile_set_source(tile_set_source, tile_set_data, atlas_texture)
 	
-	if options.get("export_tileset", true):
+	if options.get("tiles", true):
 		ResourceSaver.save(tile_set, tile_set_path)
 		
 	layer_node.tile_set = tile_set
@@ -298,7 +294,7 @@ func create_layer(layer: Dictionary, texture: Texture, tile_sets: Array, options
 	else:
 		return create_sprite_layer(layer, texture, options)
 
-func create_group_node(group: Array[String], layer_node: Node2D, root: Node) -> void:
+func create_group_node(group: Array, layer_node: Node2D, root: Node) -> void:
 	if group.size() > 0:
 		var group_node = root
 		for group_name in group:
