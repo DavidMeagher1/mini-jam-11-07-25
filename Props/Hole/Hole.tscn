@@ -78,6 +78,7 @@ texture = SubResource("GradientTexture2D_fhff2")
 script = ExtResource("7_fhff2")
 
 [node name="PoopHoleSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("9_2b2p6")
 script = ExtResource("10_bostc")
 
@@ -92,6 +93,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a6vyy")
 
 [node name="Flowers" parent="PoopHoleSprite" instance=ExtResource("11_petd8")]
+visible = false
 position = Vector2(0, -21)
 disabled = true
 

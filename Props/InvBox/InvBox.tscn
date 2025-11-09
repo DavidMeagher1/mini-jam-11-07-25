@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbr57v1gep3cy"]
+[gd_scene load_steps=8 format=3 uid="uid://bbr57v1gep3cy"]
 
 [ext_resource type="Script" uid="uid://cspbcd02ger4o" path="res://Props/InvBox/InvBox.gd" id="1_8ec37"]
 [ext_resource type="Script" uid="uid://ctjcoj4ssevwg" path="res://Props/Spawner.gd" id="1_krnal"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="2_deep0"]
 [ext_resource type="Resource" uid="uid://006mkxspmx88" path="res://Items/Knife.tres" id="2_krnal"]
 [ext_resource type="PackedScene" uid="uid://chlclm0gjjymw" path="res://Props/InvBox/InvBox.aseprite" id="3_deep0"]
 [ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="4_5sq47"]
@@ -15,9 +16,7 @@ required_deaths = 1
 required_deaths_by = Dictionary[int, int]({
 1: 1
 })
-restricted_deaths_by = Dictionary[int, int]({
-3: 1
-})
+restricted_items = Array[ExtResource("2_deep0")]([ExtResource("2_krnal")])
 metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
 
 [node name="Node2D" type="Node2D" parent="."]

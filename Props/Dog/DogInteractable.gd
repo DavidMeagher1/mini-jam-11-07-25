@@ -9,6 +9,7 @@ enum DogState {
 const knife_item: ItemData = preload("uid://006mkxspmx88")
 const meat_item: ItemData = preload("uid://c6m4thtcc8p1k")
 const dog_toy_item: ItemData = preload("uid://e7n2xso3b2rc")
+const poop_item: ItemData = preload("uid://deuh5tpgie1jl")
 
 @onready var dog_sprite_group: CanvasGroup = $dog
 @onready var point_light: PointLight2D = $PointLight2D
@@ -27,8 +28,14 @@ func _ready() -> void:
 
 func _on_interactable_clicked(button: int) -> void:
 	if Game.active_item == meat_item:
-		Game.consume_active_item()
-		state = DogState.FED
+		if state == DogState.FED:
+			Game.consume_active_item()
+			Game.grab_item(poop_item)
+			Game.impact.emit(10.0)
+			return
+		else:
+			Game.consume_active_item()
+			state = DogState.FED
 	
 	if state != DogState.FED:
 		attack()
