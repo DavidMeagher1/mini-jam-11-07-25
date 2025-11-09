@@ -12,5 +12,5 @@ func _on_interactable_clicked(button: int) -> void:
     else:
         if Game.active_item.name == "Head":
             Game.consume_active_item()
-            Game.die(Game.DeathCauses.FIRE_HOLE)
+            Game.die(Game.DeathCauses.SUICIDE_FIRE_HOLE)
         Game.consume_active_item()

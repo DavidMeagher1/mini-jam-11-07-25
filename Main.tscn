@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=10 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://room.aseprite" id="1_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbr57v1gep3cy" path="res://Props/InvBox/InvBox.tscn" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://pfd5m2d4k8tl" path="res://Murderer/Muderer.tscn" id="5_fos0i"]
 [ext_resource type="PackedScene" uid="uid://mr1rdxgncvu3" path="res://Props/Dog/DogInteractable.tscn" id="6_3dxm6"]
+[ext_resource type="Script" uid="uid://ctjcoj4ssevwg" path="res://Props/Spawner.gd" id="8_03owx"]
 [ext_resource type="PackedScene" uid="uid://cv1yunhyyovl4" path="res://Props/Dresser/Dresser.tscn" id="10_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://c6s12qtqb2neg" path="res://Props/Hole/Hole.tscn" id="11_20pc6"]
 
@@ -72,5 +73,10 @@ position = Vector2(240, 53)
 visible = false
 position = Vector2(128, 157)
 
-[node name="Hole" parent="Props" instance=ExtResource("11_20pc6")]
+[node name="Hole" type="Node2D" parent="Props"]
+script = ExtResource("8_03owx")
+required_deaths = 5
+metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
+
+[node name="Hole" parent="Props/Hole" instance=ExtResource("11_20pc6")]
 position = Vector2(122, 197)
