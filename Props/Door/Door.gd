@@ -40,6 +40,7 @@ func open():
 
 func activate() -> void:
 	if is_open:
+		#TODO: Escape through the door
 		return
 	if Game.active_item == Key:
 		Game.consume_active_item()
