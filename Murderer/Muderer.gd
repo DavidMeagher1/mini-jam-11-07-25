@@ -4,6 +4,7 @@ extends Spawner
 var held: bool = false
 
 const knife_item = preload("uid://006mkxspmx88")
+const flowers_item = preload("uid://c60inoqd4l6c")
 
 func _ready() -> void:
 	super._ready()
@@ -12,7 +13,8 @@ func _ready() -> void:
 	hide()
 
 func _on_mouse_entered() -> void:
-	timer.start()
+	if timer:
+		timer.start()
 
 func _physics_process(delta: float) -> void:
 	if held:
@@ -20,9 +22,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		var mouse_position = get_global_mouse_position()
 		global_position = global_position.move_toward(mouse_position, 100 * delta)
-		global_position.x = clamp(global_position.x, 23, 255 - 23) #HARD CODED BOUNDS FOR ROOM
-		global_position.y = clamp(global_position.y, 23, 255 - 23) #HARD CODED BOUNDS FOR ROOM
-
+		global_position.x = clamp(global_position.x, 23, 255 - 23) # HARD CODED BOUNDS FOR ROOM
+		global_position.y = clamp(global_position.y, 23, 255 - 23) # HARD CODED BOUNDS FOR ROOM
+	
 
 func shake(_delta: float) -> void:
 	var tween = create_tween()
@@ -39,7 +41,8 @@ func _on_face_clicked(_button: int) -> void:
 
 func _on_face_held(_button: int) -> void:
 	held = true
-	timer.stop()
+	if timer:
+		timer.stop()
 
 
 func _on_face_released(_button: int) -> void:
@@ -51,6 +54,9 @@ func _on_timer_timeout() -> void:
 
 func _on_too_loud() -> void:
 	if Game.has_item(knife_item):
-		queue_free()
+		%Knife.queue_free()
 	show()
 	set_physics_process(true)
+	if Game.active_item == flowers_item:
+		timer.queue_free()
+		%murderer.play("Love")

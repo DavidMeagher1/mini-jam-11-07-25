@@ -37,6 +37,7 @@ var game_state: Dictionary = {}
 
 func _ready() -> void:
 	inventory.add_item(load("uid://cr4vs30alatux")) # Head
+	inventory.add_item(load("uid://c60inoqd4l6c")) # Flowers
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item) or (active_item == item)

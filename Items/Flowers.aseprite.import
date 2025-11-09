@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://4s0y3ex7fop3"
+path="res://.godot/imported/Flowers.aseprite-2f70032d30e98808bc6724bdde3d33a3.res"
+
+[deps]
+
+source_file="res://Items/Flowers.aseprite"
+dest_files=["res://.godot/imported/Flowers.aseprite-2f70032d30e98808bc6724bdde3d33a3.res"]
+
+[params]
+
+grid_pack=true

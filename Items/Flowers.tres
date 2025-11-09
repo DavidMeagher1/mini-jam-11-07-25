@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c60inoqd4l6c"]
+
+[ext_resource type="Texture2D" uid="uid://4s0y3ex7fop3" path="res://Items/Flowers.aseprite" id="1_g3luq"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_vtvxj"]
+
+[resource]
+script = ExtResource("1_vtvxj")
+name = "Flowers"
+icon = ExtResource("1_g3luq")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

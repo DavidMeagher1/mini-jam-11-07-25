@@ -61,7 +61,7 @@ position = Vector2(-23, 66)
 y_sort_enabled = true
 
 [node name="Dresser" parent="Props" instance=ExtResource("10_wkp8b")]
-position = Vector2(187, 132)
+position = Vector2(161, 132)
 
 [node name="Dog_Interactable" parent="Props" instance=ExtResource("6_3dxm6")]
 position = Vector2(28, 136)
