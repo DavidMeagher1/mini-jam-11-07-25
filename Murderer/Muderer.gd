@@ -59,7 +59,6 @@ func _on_timer_timeout() -> void:
 	else:
 		%murderer.scale = Vector2(1.2, 1.2)
 		Game.die(Game.DeathCauses.MURDERER)
-		set_physics_process(false)
 
 func _on_too_loud() -> void:
 	if Game.has_item(knife_item):
