@@ -5,13 +5,9 @@ var item_template
 func _ready() -> void:
 	item_template = get_child(0)
 	remove_child(item_template)
-	Game.end.connect(_on_end)
 	Game.inventory.changed.connect(_on_inventory_changed)
 	_on_inventory_changed()
 	visibility_changed.connect(_on_visibility_changed)
-
-func _on_end(_ending: Game.Endings) -> void:
-	owner.hide()
 
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():

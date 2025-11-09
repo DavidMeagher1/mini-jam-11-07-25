@@ -19,6 +19,7 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
 [node name="NoiseBar" type="MarginContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(64, 4)
 offset_right = 31.0
 mouse_filter = 2

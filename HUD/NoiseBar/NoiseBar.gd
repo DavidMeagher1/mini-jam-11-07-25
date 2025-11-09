@@ -18,7 +18,7 @@ func set_noise_level(noise: float) -> void:
 
 func _ready() -> void:
 	Game.impact.connect(_on_impact)
-	Game.died.connect(_on_game_died)
+	Game.end.connect(_on_game_end)
 
 func _on_impact(noise: float) -> void:
 	noise_level += noise
@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 	if noise_level > 0:
 		noise_level = clamp(noise_level - NOISE_FALLOFF * delta, min_value, max_value)
 
-func _on_game_died() -> void:
+func _on_game_end(_ending: Game.Endings) -> void:
 	noise_level = 0
 	self.value = 0
 	was_too_loud = false

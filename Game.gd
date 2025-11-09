@@ -12,7 +12,8 @@ enum DeathCauses {
 enum Endings {
 	LOVE,
 	LOSS,
-	DEATH
+	DEATH,
+
 }
 
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
@@ -99,7 +100,6 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	end.emit(Endings.DEATH)
 
 func reload() -> void:
-	get_tree().paused = false
 	get_tree().reload_current_scene()
 	is_dead = false
 

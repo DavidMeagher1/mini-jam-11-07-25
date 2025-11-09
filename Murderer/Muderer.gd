@@ -51,23 +51,20 @@ func _on_timer_timeout() -> void:
 	if Game.has_item(dog_toy_item):
 		Game.end.emit(Game.Endings.LOSS)
 		set_physics_process(false)
-		queue_free() # TODO: show death of murderer
 	else:
 		%murderer.scale = Vector2(1.2, 1.2)
 		Game.die(Game.DeathCauses.MURDERER)
 
 func _on_too_loud() -> void:
-	if Game.has_item(knife_item):
-		%Knife.queue_free()
 	show()
 	set_physics_process(true)
+	if Game.has_item(knife_item) || Game.active_item == flowers_item:
+		%Knife.queue_free()
 	if Game.active_item == flowers_item:
 		timer.queue_free()
 		%murderer.play("Love")
-		if %Knife:
-			%Knife.queue_free()
 
 
 func _on_face_area_entered(_area: Area2D) -> void:
-	if timer:
+	if is_visible_in_tree() and timer:
 		timer.start()

@@ -19,7 +19,7 @@ var state: DogState = DogState.HOSTILE
 func _ready() -> void:
 	if Game.has_item(meat_item):
 		state = DogState.FRIENDLY
-	elif Game.has_item(dog_toy_item):
+	if Game.has_item(dog_toy_item):
 		state = DogState.FED
 	
 	if state != DogState.HOSTILE:
@@ -37,20 +37,22 @@ func _on_interactable_clicked(button: int) -> void:
 	if Game.active_item == meat_item:
 		if state == DogState.FED:
 			Game.consume_active_item()
-			Game.grab_item(poop_item)
+			Game.grab_item(poop_item, true)
 			Game.impact.emit(10.0)
 			return
 		else:
 			Game.consume_active_item()
 			state = DogState.FED
 	
-	if state != DogState.FED:
+	if Game.active_item == knife_item || state != DogState.FED:
 		attack()
-	elif Game.active_item == dog_toy_item:
+		return
+	
+	if Game.active_item == dog_toy_item:
 		Game.consume_active_item()
 		Game.impact.emit(40.0)
 	else:
-		Game.grab_item(dog_toy_item)
+		Game.grab_item(dog_toy_item, true)
 		Game.impact.emit(20.0)
 		
 
