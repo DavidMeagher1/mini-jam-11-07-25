@@ -4,11 +4,13 @@ enum DeathCauses {
 	UNKNOWN,
 	MURDERER,
 	DOG,
-	SUICIDE_KNIFE_HEAD
+	SUICIDE_KNIFE_HEAD,
+	FIRE_HOLE
 }
 
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
 var blood_scene: PackedScene = preload("res://Props/Blood/Blood.tscn")
+var head_item: ItemData = preload("res://Items/Head.tres")
 
 signal active_item_changed(item: ItemData) # Emitted when the active item changes
 signal impact(noise: float) # Will add noise to the noise bar
@@ -86,6 +88,8 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 		var timer = get_tree().create_timer(0.3, true, false, true)
 		await timer.timeout
 		get_tree().reload_current_scene.call_deferred()
+		if not Game.has_item(head_item):
+			Game.inventory.add_item(head_item)
 		died.emit()
 	
 

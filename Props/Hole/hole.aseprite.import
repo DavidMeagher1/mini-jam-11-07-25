@@ -1,0 +1,15 @@
+[remap]
+
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
+uid="uid://dwpemy08wk15k"
+path="res://.godot/imported/hole.aseprite-99069e4c5b8c43cf40124377a5904af9.res"
+
+[deps]
+
+source_file="res://Props/Hole/hole.aseprite"
+dest_files=["res://.godot/imported/hole.aseprite-99069e4c5b8c43cf40124377a5904af9.res"]
+
+[params]
+
+grid_pack=true
