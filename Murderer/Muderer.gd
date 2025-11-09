@@ -1,4 +1,4 @@
-extends Spawner
+extends Node2D
 
 @onready var timer: Timer = $Timer
 var held: bool = false
@@ -8,7 +8,6 @@ const flowers_item = preload("uid://c60inoqd4l6c")
 const dog_toy_item = preload("uid://e7n2xso3b2rc")
 
 func _ready() -> void:
-	super._ready()
 	Game.too_loud.connect(_on_too_loud)
 	set_physics_process(false)
 	hide()
