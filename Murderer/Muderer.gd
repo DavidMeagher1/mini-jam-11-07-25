@@ -20,9 +20,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		var mouse_position = get_global_mouse_position()
 		global_position = global_position.move_toward(mouse_position, 100 * delta)
-		global_position.x = clamp(global_position.x, 23, 255 - 23)
-		global_position.y = clamp(global_position.y, 23, 255 - 23)
-		print("Mouse position: ", mouse_position)
+		global_position.x = clamp(global_position.x, 23, 255 - 23) #HARD CODED BOUNDS FOR ROOM
+		global_position.y = clamp(global_position.y, 23, 255 - 23) #HARD CODED BOUNDS FOR ROOM
 
 
 func shake(delta: float) -> void:
