@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c6m4thtcc8p1k"]
+
+[ext_resource type="Texture2D" uid="uid://ceo0kkh8mv0vq" path="res://assets/meat.aseprite" id="1_5xall"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_o1a65"]
+
+[resource]
+script = ExtResource("1_o1a65")
+name = "Meat"
+icon = ExtResource("1_5xall")
+metadata/_custom_type_script = "uid://bf6auountwnjf"

@@ -1,0 +1,14 @@
+[remap]
+
+importer="MeagherGames.aseprite.AnimatedSprite2D"
+type="PackedScene"
+uid="uid://w7b4biodiorb"
+path="res://.godot/imported/murderer.aseprite-7dec0296f37301de5eefc8aaebf0416a.tscn"
+
+[deps]
+
+source_file="res://Murderer/murderer.aseprite"
+dest_files=["res://.godot/imported/murderer.aseprite-7dec0296f37301de5eefc8aaebf0416a.tscn"]
+
+[params]
+

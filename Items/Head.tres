@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cr4vs30alatux"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cr4vs30alatux"]
 
 [ext_resource type="Texture2D" uid="uid://dm56tynvyhk2f" path="res://Items/Head.aseprite" id="1_ds86s"]
 [ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_nico2"]
+[ext_resource type="Resource" uid="uid://006mkxspmx88" path="res://Items/Knife.tres" id="3_e5lq0"]
+[ext_resource type="Resource" uid="uid://c6m4thtcc8p1k" path="res://Items/Meat.tres" id="4_y1t5f"]
 
 [resource]
 script = ExtResource("1_nico2")
 name = "Head"
 icon = ExtResource("1_ds86s")
+recipes = Dictionary[ExtResource("1_nico2"), ExtResource("1_nico2")]({
+ExtResource("3_e5lq0"): ExtResource("4_y1t5f")
+})
 metadata/_custom_type_script = "uid://bf6auountwnjf"
