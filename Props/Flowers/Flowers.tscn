@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3du7wqlu08hv"]
+
+[ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="1_s0f7p"]
+[ext_resource type="Texture2D" uid="uid://cmoswaj8ivsmo" path="res://Props/Flowers/Flowers.aseprite" id="2_7c5gv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2x4b"]
+radius = 17.0
+
+[node name="Flowers" type="Area2D"]
+script = ExtResource("1_s0f7p")
+metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j2x4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7c5gv")

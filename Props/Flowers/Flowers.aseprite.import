@@ -1,19 +1,15 @@
 [remap]
 
-importer="MeagherGames.aseprite.Scene"
-type="PackedScene"
+importer="MeagherGames.aseprite.Texture2D"
+type="Texture2D"
 uid="uid://cmoswaj8ivsmo"
-path="res://.godot/imported/Flowers.aseprite-fafcba7aa0db17597b94be3691e8c280.tscn"
+path="res://.godot/imported/Flowers.aseprite-fafcba7aa0db17597b94be3691e8c280.res"
 
 [deps]
 
 source_file="res://Props/Flowers/Flowers.aseprite"
-dest_files=["res://.godot/imported/Flowers.aseprite-fafcba7aa0db17597b94be3691e8c280.tscn"]
+dest_files=["res://.godot/imported/Flowers.aseprite-fafcba7aa0db17597b94be3691e8c280.res"]
 
 [params]
 
-use_canvas_group=true
-centered=true
-layers=false
-tiles=false
-tile_set_path="res://Props/Flowers/Flowers_tileset.tres"
+grid_pack=true
