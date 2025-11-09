@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b12p3w2qry0ng"]
+
+[ext_resource type="PackedScene" uid="uid://b1t0hvtcqeome" path="res://assets/puff.aseprite" id="1_23jft"]
+[ext_resource type="Script" uid="uid://dutw0dpju1mo3" path="res://Props/Puff/Puff.gd" id="1_p4i3q"]
+
+[node name="puff" type="Node2D"]
+process_mode = 3
+process_priority = 1
+script = ExtResource("1_p4i3q")
+
+[node name="puff" parent="." instance=ExtResource("1_23jft")]
+modulate = Color(1, 0, 0, 1)
+autoplay = "puff"
+offset = Vector2(-31, 0)
+
+[connection signal="animation_changed" from="puff" to="." method="_on_puff_animation_changed"]
+[connection signal="animation_finished" from="puff" to="." method="_on_puff_animation_finished"]

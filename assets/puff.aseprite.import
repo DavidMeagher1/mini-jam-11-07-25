@@ -1,0 +1,14 @@
+[remap]
+
+importer="MeagherGames.aseprite.AnimatedSprite2D"
+type="PackedScene"
+uid="uid://b1t0hvtcqeome"
+path="res://.godot/imported/puff.aseprite-40dfa40f0556ce1752e0a07e7215913d.tscn"
+
+[deps]
+
+source_file="res://assets/puff.aseprite"
+dest_files=["res://.godot/imported/puff.aseprite-40dfa40f0556ce1752e0a07e7215913d.tscn"]
+
+[params]
+
