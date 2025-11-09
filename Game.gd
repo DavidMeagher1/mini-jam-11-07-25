@@ -46,7 +46,7 @@ var game_state: Dictionary = {}
 
 
 func _ready() -> void:
-    inventory.add_item(head_item) # Head
+	inventory.add_item(head_item) # Head
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item) or (active_item == item)
@@ -85,18 +85,18 @@ func spawn_puff(parent: Node, position: Vector2) -> void:
 		parent.add_child(puff_instance)
 
 func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
-    if is_dead:
-        return
-    is_dead = true
-    deaths += 1
-    if not deaths_by.has(from):
-        deaths_by[from] = 0
-    deaths_by[from] += 1
-    if not Game.has_item(head_item):
-        inventory.add_item(head_item)
-    died.emit()
-    get_tree().paused = true
-    end.emit(Endings.DEATH)
+	if is_dead:
+		return
+	is_dead = true
+	deaths += 1
+	if not deaths_by.has(from):
+		deaths_by[from] = 0
+	deaths_by[from] += 1
+	if not Game.has_item(head_item):
+		inventory.add_item(head_item)
+	died.emit()
+	get_tree().paused = true
+	end.emit(Endings.DEATH)
 
 func reload() -> void:
 	get_tree().paused = false
