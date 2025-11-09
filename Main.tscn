@@ -13,7 +13,6 @@
 [node name="Main" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -31,22 +30,42 @@ limit_enabled = false
 [node name="Eyes" type="Node2D" parent="."]
 
 [node name="Eye" parent="Eyes" instance=ExtResource("3_r0du0")]
-position = Vector2(205, 72)
+position = Vector2(9, 12)
 
 [node name="Eye2" parent="Eyes" instance=ExtResource("3_r0du0")]
-position = Vector2(205, 114)
+position = Vector2(247, 0)
 
 [node name="Eye3" parent="Eyes" instance=ExtResource("3_r0du0")]
-position = Vector2(212, 52)
+position = Vector2(-16, 130)
 
 [node name="Eye4" parent="Eyes" instance=ExtResource("3_r0du0")]
-position = Vector2(183, 85)
+position = Vector2(292, 79)
+
+[node name="Eye5" parent="Eyes" instance=ExtResource("3_r0du0")]
+position = Vector2(274, 40)
+
+[node name="Eye6" parent="Eyes" instance=ExtResource("3_r0du0")]
+position = Vector2(274, 176)
+
+[node name="Eye7" parent="Eyes" instance=ExtResource("3_r0du0")]
+position = Vector2(-23, 173)
+
+[node name="Eye8" parent="Eyes" instance=ExtResource("3_r0du0")]
+position = Vector2(-51, 216)
+
+[node name="Eye9" parent="Eyes" instance=ExtResource("3_r0du0")]
+position = Vector2(292, 216)
+
+[node name="Eye10" parent="Eyes" instance=ExtResource("3_r0du0")]
+position = Vector2(-23, 66)
 
 [node name="InvBox" parent="." instance=ExtResource("4_cm0pq")]
+visible = false
 position = Vector2(128, 157)
 restricted_items = Array[ExtResource("5_03owx")]([ExtResource("6_wkp8b"), ExtResource("7_20pc6")])
 
 [node name="Muderer" parent="." instance=ExtResource("5_fos0i")]
+visible = false
 position = Vector2(240, 53)
 
 [node name="Dog_Interactable" parent="." instance=ExtResource("6_3dxm6")]

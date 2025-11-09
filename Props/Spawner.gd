@@ -1,6 +1,5 @@
 class_name Spawner extends Node2D
 
-@export var enabled:bool = true
 @export_group("Requirements", "required_")
 @export var required_items: Array[ItemData] = []
 @export var required_deaths: int = 0
@@ -11,6 +10,9 @@ class_name Spawner extends Node2D
 @export var restricted_deaths_by: Dictionary[Game.DeathCauses, int] = {}
 
 func _ready() -> void:
+    test()
+
+func test() -> void:
     if restricted_deaths > 0 and Game.deaths > restricted_deaths:
         queue_free()
         return
@@ -38,3 +40,6 @@ func _ready() -> void:
         if Game.deaths_by.has(death_cause) and Game.deaths_by[death_cause] >= count:
             queue_free()
             return
+
+    if not visible:
+        visible = true

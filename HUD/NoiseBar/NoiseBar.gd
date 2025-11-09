@@ -64,5 +64,4 @@ func _on_game_died() -> void:
 	self.value = 0
 	was_too_loud = false
 	react_timer = 0.0
-	visible = false
 	set_process(true)

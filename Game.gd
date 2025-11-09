@@ -15,7 +15,7 @@ signal impact(noise: float) # Will add noise to the noise bar
 signal noise_changed(noise_level: float) # Emitted when the noise level changes
 signal too_loud() # Emitted when the player makes too much noise
 signal died() # Emitted when the player dies
-signal item_crafted(itemA:ItemData, itemB:ItemData, result:ItemData) # Emitted when an item is crafted
+signal item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) # Emitted when an item is crafted
 
 
 var deaths: int = 0
@@ -34,10 +34,7 @@ var active_item: ItemData = null:
 
 
 func _ready() -> void:
-	# For testing purposes, give the player a key at start
-	#inventory.add_item(load("uid://dcr0oiel6gb4a"))
-	#inventory.add_item(load("uid://dcr0oiel6gb4a"))
-	inventory.add_item(load("uid://cr4vs30alatux"))  # Head
+	inventory.add_item(load("uid://cr4vs30alatux")) # Head
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item)
@@ -82,13 +79,12 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	deaths_by[from] += 1
 	var blood_instance = blood_scene.instantiate()
 	if blood_instance:
-		get_tree().current_scene.add_child(blood_instance,true)
-		var timer = get_tree().create_timer(0.3,true,false,true)
+		get_tree().current_scene.add_child(blood_instance, true)
+		var timer = get_tree().create_timer(0.3, true, false, true)
 		await timer.timeout
 		get_tree().reload_current_scene.call_deferred()
 		died.emit()
 	
-
 
 func _on_item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) -> void:
 	if itemA.name == "Knife" or itemB.name == "Knife":

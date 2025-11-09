@@ -1,16 +1,15 @@
 extends Node2D
 
-var knife_item:ItemData = preload("uid://006mkxspmx88")
-var meat_item:ItemData = preload("uid://c6m4thtcc8p1k")
-@onready var dog_sprite_group:CanvasGroup = $dog
-@onready var point_light:PointLight2D = $PointLight2D
+var knife_item: ItemData = preload("uid://006mkxspmx88")
+var meat_item: ItemData = preload("uid://c6m4thtcc8p1k")
+@onready var dog_sprite_group: CanvasGroup = $dog
+@onready var point_light: PointLight2D = $PointLight2D
 
 var hostile: bool = true
 
 func _ready() -> void:
     if Game.has_item(meat_item):
         hostile = false
-    if not hostile:
         show_dog()
     point_light.visible = false
 
@@ -18,12 +17,12 @@ func _on_interactable_clicked(button: int) -> void:
     if hostile:
         attack()
         return
-    if Game.active_item ==  null or Game.active_item == knife_item:
-        attack()
-    elif Game.active_item == meat_item:
+    if Game.active_item == meat_item:
         queue_free()
         Game.consume_active_item()
-        Game.active_item = load("uid://dcr0oiel6gb4a") #key item
+        Game.active_item = load("uid://dcr0oiel6gb4a") # key item
+    else:
+        attack()
 
 func show_dog() -> void:
     for child in dog_sprite_group.get_children():
