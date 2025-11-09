@@ -25,7 +25,6 @@ func _on_inventory_changed() -> void:
         add_child(item_instance)
 
 func _gui_input(event: InputEvent) -> void:
-    if event is InputEventMouseButton:
-        if event.is_pressed() and Game.active_item and event.button_index == MOUSE_BUTTON_RIGHT:
-            Game.drop_item()
-            accept_event()
+    if event.is_pressed() and Game.active_item:
+        Game.drop_item()
+        accept_event()

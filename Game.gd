@@ -22,6 +22,7 @@ var active_item: ItemData = null:
 func _ready() -> void:
 	# For testing purposes, give the player a key at start
 	inventory.add_item(load("uid://dcr0oiel6gb4a"))
+	inventory.add_item(load("uid://dcr0oiel6gb4a"))
 	inventory.add_item(load("uid://cr4vs30alatux"))
 
 func has_item(item: ItemData) -> bool:
@@ -38,6 +39,14 @@ func drop_item() -> void:
 	if cursor.current_item:
 		inventory.add_item(cursor.current_item)
 		cursor.current_item = null
+
+func craft_with_active_item(item: ItemData) -> ItemData:
+	var recipe_output = active_item.get_crafted_item(item)
+	if recipe_output:
+		consume_active_item()
+		inventory.remove_item(item)
+		inventory.add_item(recipe_output)
+	return recipe_output
 
 func consume_active_item() -> void:
 	if cursor.current_item:
