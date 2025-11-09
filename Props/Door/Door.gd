@@ -3,6 +3,7 @@ extends Node2D
 signal opened()
 
 const Key: ItemData = preload("uid://dcr0oiel6gb4a")
+const flowers_item: ItemData = preload("uid://c60inoqd4l6c")
 
 var is_open: bool = false
 
@@ -41,7 +42,12 @@ func open():
 func activate() -> void:
 	if is_open:
 		#TODO: Escape through the door
-		Game.reload()
+		if Game.has_item(flowers_item):
+			# TODO: Go to LOVE ending
+			Game.reload()
+		else:
+			# TODO: Go to escape ending
+			Game.reload()
 		return
 	if Game.active_item == Key:
 		Game.consume_active_item()

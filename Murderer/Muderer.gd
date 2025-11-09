@@ -56,6 +56,7 @@ func _on_timer_timeout() -> void:
 		Game.die(Game.DeathCauses.MURDERER)
 
 func _on_too_loud() -> void:
+	print("Player made too much noise! Murderer activated")
 	show()
 	set_physics_process(true)
 	if Game.has_item(knife_item) || Game.active_item == flowers_item:

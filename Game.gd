@@ -19,6 +19,7 @@ enum Endings {
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
 var head_item: ItemData = preload("uid://cr4vs30alatux")
 
+signal start()
 signal end(ending: Endings)
 signal active_item_changed(item: ItemData) # Emitted when the active item changes
 signal impact(noise: float) # Will add noise to the noise bar
@@ -48,6 +49,7 @@ var game_state: Dictionary = {}
 
 func _ready() -> void:
 	inventory.add_item(head_item) # Head
+	start.emit()
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item) or (active_item == item)
@@ -96,12 +98,12 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	if not Game.has_item(head_item):
 		inventory.add_item(head_item)
 	died.emit()
-	get_tree().paused = true
 	end.emit(Endings.DEATH)
 
 func reload() -> void:
 	get_tree().reload_current_scene()
 	is_dead = false
+	start.emit()
 
 func _on_item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) -> void:
 	if itemA.name == "Knife" or itemB.name == "Knife":

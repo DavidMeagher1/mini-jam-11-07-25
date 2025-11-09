@@ -13,12 +13,13 @@ func set_noise_level(noise: float) -> void:
 	noise_level = noise
 	Game.noise_changed.emit(noise_level)
 	if noise_level >= max_value and not was_too_loud:
+		print("Player made too much noise!")
 		was_too_loud = true
 		Game.too_loud.emit()
 
 func _ready() -> void:
 	Game.impact.connect(_on_impact)
-	Game.end.connect(_on_game_end)
+	Game.start.connect(reset)
 
 func _on_impact(noise: float) -> void:
 	noise_level += noise
@@ -59,7 +60,8 @@ func _process(delta: float) -> void:
 	if noise_level > 0:
 		noise_level = clamp(noise_level - NOISE_FALLOFF * delta, min_value, max_value)
 
-func _on_game_end(_ending: Game.Endings) -> void:
+func reset() -> void:
+	print("Resetting Noise Bar on game end")
 	noise_level = 0
 	self.value = 0
 	was_too_loud = false
