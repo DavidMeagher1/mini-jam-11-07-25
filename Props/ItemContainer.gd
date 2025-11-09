@@ -1,12 +1,12 @@
 class_name ItemContainer extends Interactable
 
 @export var items: Array[ItemData] = []
-@export var random:bool = false
+@export var random: bool = false
 
 func _ready() -> void:
     clicked.connect(_on_clicked)
 
-func _on_clicked() -> void:
+func _on_clicked(_button: int) -> void:
     if Game.active_item:
         return
     if not random:

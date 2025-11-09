@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd0rs1feq5e5p"]
+[gd_scene load_steps=10 format=3 uid="uid://cd0rs1feq5e5p"]
 
 [ext_resource type="PackedScene" uid="uid://cvw6r7weck2yf" path="res://Props/Door/Door.aseprite" id="1_83kqr"]
 [ext_resource type="Script" uid="uid://degp4c6edkd2y" path="res://Props/Door/Door.gd" id="1_sqlwo"]
@@ -17,6 +17,30 @@ tracks/0/keys = {
 "clips": PackedStringArray("Locked"),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_q61yq"]
 length = 0.1
@@ -30,11 +54,63 @@ tracks/0/keys = {
 "clips": PackedStringArray("Open"),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_37iyj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37iyj"]
 _data = {
 &"Locked": SubResource("Animation_sqlwo"),
-&"Open": SubResource("Animation_q61yq")
+&"Open": SubResource("Animation_q61yq"),
+&"RESET": SubResource("Animation_37iyj")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqlwo"]
@@ -44,13 +120,14 @@ size = Vector2(32, 112)
 script = ExtResource("1_sqlwo")
 
 [node name="Door" parent="." instance=ExtResource("1_83kqr")]
-region_rect = Rect2(0, 112, 32, 111)
+region_rect = Rect2(0, 112, 34, 113)
 
 [node name="SyncingAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_37iyj")
 }
+autoplay = "Locked"
 script = ExtResource("2_4gcux")
 source_animation_player = NodePath("../Door/AnimationPlayer")
 
@@ -62,6 +139,9 @@ metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(-1, -13)
 shape = SubResource("RectangleShape2D_sqlwo")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [connection signal="clicked" from="Interactable" to="." method="_on_clicked"]
 
