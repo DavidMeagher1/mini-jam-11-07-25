@@ -15,6 +15,9 @@ required_deaths = 1
 required_deaths_by = Dictionary[int, int]({
 1: 1
 })
+restricted_deaths_by = Dictionary[int, int]({
+3: 1
+})
 metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
 
 [node name="Node2D" type="Node2D" parent="."]
