@@ -2,6 +2,8 @@ extends AnimatedSprite2D
 
 
 func _on_interactable_clicked(button: int) -> void:
+    if Game.active_item == null:
+        return
     if Game.active_item.name == "Meat":
         Game.consume_active_item()
         ## TODO COOK MEAT
