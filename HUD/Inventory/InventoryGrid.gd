@@ -11,7 +11,7 @@ func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
 
 func _on_end(_ending: Game.Endings) -> void:
-	hide()
+	owner.hide()
 
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
