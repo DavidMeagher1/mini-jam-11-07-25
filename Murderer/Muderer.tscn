@@ -28,17 +28,19 @@ restricted_items = Array[ExtResource("2_jbxtt")]([ExtResource("3_7vlad")])
 metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
 
 [node name="murderer" parent="." instance=ExtResource("1_fhv73")]
+position = Vector2(0, -33.5)
 autoplay = "RESET"
 frame_progress = 0.29856795
 
 [node name="Face" type="Area2D" parent="murderer"]
+position = Vector2(0, 33.5)
 script = ExtResource("3_kle12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="murderer/Face"]
 shape = SubResource("CircleShape2D_fhv73")
 
 [node name="Knife" type="Sprite2D" parent="."]
-position = Vector2(-53, 13)
+position = Vector2(-53, -20.5)
 texture = ExtResource("2_urcot")
 
 [node name="Area2D" type="Area2D" parent="Knife"]
@@ -51,6 +53,7 @@ polygon = PackedVector2Array(-21, -4.25, -5, -21.25, 18, 2.75, 10, 22.75)
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -17)
 texture = SubResource("GradientTexture2D_7vlad")
 
 [connection signal="clicked" from="murderer/Face" to="." method="_on_face_clicked"]
