@@ -1,0 +1,14 @@
+[remap]
+
+importer="MeagherGames.aseprite.AnimatedSprite2D"
+type="PackedScene"
+uid="uid://d4h0tylijk52j"
+path="res://.godot/imported/dresser.aseprite-0c47b34c291060b709b790ef648c581c.tscn"
+
+[deps]
+
+source_file="res://Props/Dresser/dresser.aseprite"
+dest_files=["res://.godot/imported/dresser.aseprite-0c47b34c291060b709b790ef648c581c.tscn"]
+
+[params]
+

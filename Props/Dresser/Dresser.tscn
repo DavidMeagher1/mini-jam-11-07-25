@@ -1,0 +1,21 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv1yunhyyovl4"]
+
+[ext_resource type="Script" uid="uid://cpv0nfnm8lene" path="res://Props/ItemContainer.gd" id="1_7vt8n"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="2_bshw8"]
+[ext_resource type="PackedScene" uid="uid://d4h0tylijk52j" path="res://Props/Dresser/dresser.aseprite" id="2_tk4px"]
+[ext_resource type="Resource" uid="uid://clmo7rnv07yno" path="res://Items/Junk.tres" id="3_o2cth"]
+[ext_resource type="Resource" uid="uid://us17iqe7vkr6" path="res://Items/Match.tres" id="4_kjk3b"]
+[ext_resource type="Resource" uid="uid://bsn0h3q7a356h" path="res://Items/StrangeSeed.tres" id="5_fbtlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk5v1"]
+size = Vector2(39, 38)
+
+[node name="Dresser" type="Area2D"]
+script = ExtResource("1_7vt8n")
+items = Array[ExtResource("2_bshw8")]([ExtResource("3_o2cth"), ExtResource("3_o2cth"), ExtResource("3_o2cth"), ExtResource("3_o2cth"), ExtResource("3_o2cth"), ExtResource("3_o2cth"), ExtResource("4_kjk3b"), ExtResource("5_fbtlw")])
+
+[node name="dresser" parent="." instance=ExtResource("2_tk4px")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_uk5v1")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://clmo7rnv07yno"]
+
+[ext_resource type="Texture2D" uid="uid://w5pjvqanmqeg" path="res://Items/junk.aseprite" id="1_kam63"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_vv0i2"]
+
+[resource]
+script = ExtResource("1_vv0i2")
+name = "Junk"
+icon = ExtResource("1_kam63")
+metadata/_custom_type_script = "uid://bf6auountwnjf"
