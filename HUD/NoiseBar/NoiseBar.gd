@@ -1,7 +1,7 @@
 extends ProgressBar
 
 const NOISE_FALLOFF: float = 5.0
-const BASIC_NOISE: float = 2.0
+const BASIC_NOISE: float = 20.0
 
 var noise_level: float = 0.0: set = set_noise_level
 var react_timer: float = 0.0
@@ -18,10 +18,15 @@ func set_noise_level(noise: float) -> void:
 		Game.too_loud.emit()
 
 func _ready() -> void:
+	set_process_input(false)
+	hide()
 	Game.impact.connect(_on_impact)
 	Game.start.connect(reset)
+	Game.end.connect(_on_end)
 
 func _on_impact(noise: float) -> void:
+	if not visible:
+		show()
 	noise_level += noise
 	var tween = create_tween()
 	# Shake the bar to indicate noise impact
@@ -31,8 +36,6 @@ func _on_impact(noise: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed():
-		if not visible:
-			visible = true
 		_on_impact(BASIC_NOISE)
 
 func _process(delta: float) -> void:
@@ -60,10 +63,18 @@ func _process(delta: float) -> void:
 	if noise_level > 0:
 		noise_level = clamp(noise_level - NOISE_FALLOFF * delta, min_value, max_value)
 
+func _on_end(_ending: int) -> void:
+	hide()
+	set_process(false)
+	set_process_input(false)
+
 func reset() -> void:
+	if was_too_loud:
+		show()
 	print("Resetting Noise Bar on game end")
 	noise_level = 0
 	self.value = 0
 	was_too_loud = false
 	react_timer = 0.0
 	set_process(true)
+	set_process_input(true)

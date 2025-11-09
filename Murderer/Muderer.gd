@@ -7,6 +7,8 @@ const knife_item = preload("uid://006mkxspmx88")
 const flowers_item = preload("uid://c60inoqd4l6c")
 const dog_toy_item = preload("uid://e7n2xso3b2rc")
 
+var is_loving: bool = false
+
 func _ready() -> void:
 	Game.too_loud.connect(_on_too_loud)
 	set_physics_process(false)
@@ -32,14 +34,13 @@ func shake(_delta: float) -> void:
 	await tween.finished
 
 func _on_face_clicked(_button: int) -> void:
-	if Game.has_item(dog_toy_item) and Game.active_item == flowers_item:
+	if is_loving:
 		Game.end.emit(Game.Endings.LOVE)
 	
 
 func _on_face_held(_button: int) -> void:
 	held = true
-	if timer:
-		timer.stop()
+	timer.stop()
 
 
 func _on_face_released(_button: int) -> void:
@@ -61,10 +62,11 @@ func _on_too_loud() -> void:
 	if Game.has_item(knife_item) || Game.active_item == flowers_item:
 		%Knife.queue_free()
 	if Game.active_item == flowers_item:
-		timer.queue_free()
+		is_loving = true
 		%murderer.play("Love")
 
 
 func _on_face_area_entered(_area: Area2D) -> void:
-	if is_visible_in_tree() and timer:
-		timer.start()
+	if is_loving:
+		return
+	timer.start()

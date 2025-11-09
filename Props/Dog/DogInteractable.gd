@@ -38,7 +38,7 @@ func _on_interactable_clicked(button: int) -> void:
 		if state == DogState.FED:
 			Game.consume_active_item()
 			Game.grab_item(poop_item, true)
-			Game.impact.emit(10.0)
+			Game.impact.emit(30.0)
 			return
 		else:
 			Game.consume_active_item()
@@ -50,10 +50,10 @@ func _on_interactable_clicked(button: int) -> void:
 	
 	if Game.active_item == dog_toy_item:
 		Game.consume_active_item()
-		Game.impact.emit(40.0)
+		Game.impact.emit(50.0)
 	else:
 		Game.grab_item(dog_toy_item, true)
-		Game.impact.emit(20.0)
+		Game.impact.emit(30.0)
 		
 
 func attack() -> void:

@@ -49,7 +49,6 @@ var game_state: Dictionary = {}
 
 func _ready() -> void:
 	inventory.add_item(head_item) # Head
-	start.emit()
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item) or (active_item == item)
@@ -101,9 +100,8 @@ func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
 	end.emit(Endings.DEATH)
 
 func reload() -> void:
-	get_tree().reload_current_scene()
 	is_dead = false
-	start.emit()
+	get_tree().reload_current_scene()
 
 func _on_item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) -> void:
 	if itemA.name == "Knife" or itemB.name == "Knife":

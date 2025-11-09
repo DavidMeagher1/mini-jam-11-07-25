@@ -54,4 +54,4 @@ func activate() -> void:
 		open()
 	else:
 		%SyncingAnimationPlayer.play("Locked")
-		Game.impact.emit(70)
+		Game.impact.emit(80)
