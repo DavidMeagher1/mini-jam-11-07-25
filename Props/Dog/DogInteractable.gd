@@ -25,6 +25,13 @@ func _ready() -> void:
 	if state != DogState.HOSTILE:
 		show_dog()
 	point_light.visible = false
+	Game.end.connect(_on_game_end)
+
+func _on_game_end(ending: int) -> void:
+	if ending == Game.Endings.LOSS:
+		show_dog()
+		point_light.visible = true
+		dog_sprite_group.scale = Vector2(1.2, 1.2)
 
 func _on_interactable_clicked(button: int) -> void:
 	if Game.active_item == meat_item:

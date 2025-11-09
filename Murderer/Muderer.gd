@@ -5,6 +5,7 @@ var held: bool = false
 
 const knife_item = preload("uid://006mkxspmx88")
 const flowers_item = preload("uid://c60inoqd4l6c")
+const dog_toy_item = preload("uid://e7n2xso3b2rc")
 
 func _ready() -> void:
 	super._ready()
@@ -36,8 +37,9 @@ func shake(_delta: float) -> void:
 	await tween.finished
 
 func _on_face_clicked(_button: int) -> void:
-	pass # Replace with function body.
-
+	if Game.has_item(dog_toy_item) and Game.active_item == flowers_item:
+		Game.end.emit(Game.Endings.LOVE)
+	
 
 func _on_face_held(_button: int) -> void:
 	held = true
@@ -50,7 +52,14 @@ func _on_face_released(_button: int) -> void:
 
 
 func _on_timer_timeout() -> void:
-	Game.die(Game.DeathCauses.MURDERER)
+	if Game.has_item(dog_toy_item):
+		Game.end.emit(Game.Endings.LOSS)
+		set_physics_process(false)
+		queue_free() # TODO: show death of murderer
+	else:
+		%murderer.scale = Vector2(1.2, 1.2)
+		Game.die(Game.DeathCauses.MURDERER)
+		set_physics_process(false)
 
 func _on_too_loud() -> void:
 	if Game.has_item(knife_item):
@@ -58,5 +67,7 @@ func _on_too_loud() -> void:
 	show()
 	set_physics_process(true)
 	if Game.active_item == flowers_item:
+		if %Knife:
+			%Knife.queue_free()
 		timer.queue_free()
 		%murderer.play("Love")

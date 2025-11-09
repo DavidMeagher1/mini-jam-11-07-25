@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7ni8ail5k8p4"]
+[gd_scene load_steps=4 format=3 uid="uid://c7ni8ail5k8p4"]
 
+[ext_resource type="Script" uid="uid://dlwsr27ue42pp" path="res://Props/Blood/Blood.gd" id="1_1mqpi"]
 [ext_resource type="Texture2D" uid="uid://dyijkifgwknjk" path="res://Props/Blood/blood.aseprite" id="1_g4x2s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4x2s"]
 light_mode = 1
 
 [node name="Blood" type="Node2D"]
+script = ExtResource("1_1mqpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 top_level = true

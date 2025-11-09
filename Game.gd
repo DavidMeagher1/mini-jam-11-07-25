@@ -8,10 +8,16 @@ enum DeathCauses {
 	FIRE_HOLE
 }
 
-var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
-var blood_scene: PackedScene = preload("res://Props/Blood/Blood.tscn")
-var head_item: ItemData = preload("res://Items/Head.tres")
+enum Endings {
+	LOVE,
+	LOSS,
+	DEATH
+}
 
+var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
+var head_item: ItemData = preload("uid://cr4vs30alatux")
+
+signal end(ending: Endings)
 signal active_item_changed(item: ItemData) # Emitted when the active item changes
 signal impact(noise: float) # Will add noise to the noise bar
 signal noise_changed(noise_level: float) # Emitted when the noise level changes
@@ -20,6 +26,7 @@ signal died() # Emitted when the player dies
 signal item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) # Emitted when an item is crafted
 
 
+var is_dead: bool = false
 var deaths: int = 0
 var deaths_by: Dictionary[DeathCauses, int] = {}
 var inventory: InventoryData = InventoryData.new()
@@ -38,8 +45,7 @@ var game_state: Dictionary = {}
 
 
 func _ready() -> void:
-	inventory.add_item(load("uid://cr4vs30alatux")) # Head
-	inventory.add_item(load("uid://c60inoqd4l6c")) # Flowers
+	inventory.add_item(head_item) # Head
 
 func has_item(item: ItemData) -> bool:
 	return inventory.has_item(item) or (active_item == item)
@@ -78,20 +84,20 @@ func spawn_puff(parent: Node, position: Vector2) -> void:
 		parent.add_child(puff_instance)
 
 func die(from: DeathCauses = DeathCauses.UNKNOWN) -> void:
+	if is_dead:
+		return
+	is_dead = true
 	deaths += 1
 	if not deaths_by.has(from):
 		deaths_by[from] = 0
 	deaths_by[from] += 1
-	var blood_instance = blood_scene.instantiate()
-	if blood_instance:
-		get_tree().current_scene.add_child(blood_instance, true)
-		var timer = get_tree().create_timer(0.3, true, false, true)
-		await timer.timeout
-		get_tree().reload_current_scene.call_deferred()
-		if not Game.has_item(head_item):
-			Game.inventory.add_item(head_item)
-		died.emit()
-	
+	died.emit()
+	end.emit(Endings.DEATH)
+
+func reload() -> void:
+	get_tree().reload_current_scene()
+	is_dead = false
+
 
 func _on_item_crafted(itemA: ItemData, itemB: ItemData, result: ItemData) -> void:
 	if itemA.name == "Knife" or itemB.name == "Knife":
