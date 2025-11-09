@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=11 format=3 uid="uid://cmd74jp3cixlg"]
 
+[ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://room.aseprite" id="1_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://ccd32q8tyxgmk" path="res://Props/Eye/Eye.tscn" id="3_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bbr57v1gep3cy" path="res://Props/InvBox/InvBox.tscn" id="4_cm0pq"]
@@ -14,6 +15,7 @@
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(128, 128)
+texture = ExtResource("1_wkp8b")
 hframes = 4
 
 [node name="Door" parent="." instance=ExtResource("2_uu6xs")]
