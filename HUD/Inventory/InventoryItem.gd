@@ -1,5 +1,6 @@
 extends TextureButton
 
+
 @export var item_data: ItemData: set = set_item_data
 
 func _ready() -> void:
@@ -22,4 +23,5 @@ func _on_pressed() -> void:
 			Game.consume_active_item()
 			Game.inventory.remove_item(item_data)
 			Game.inventory.add_item(recipe_output)
+			Game.spawn_puff(get_parent_control(),get_global_mouse_position())
 		accept_event()

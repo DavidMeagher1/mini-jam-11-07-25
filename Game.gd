@@ -1,5 +1,7 @@
 extends Node
 
+var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
+
 signal impact(noise: float) # Will add noise to the noise bar
 signal noise_changed(noise_level: float) # Emitted when the noise level changes
 signal too_loud() # Emitted when the player makes too much noise
@@ -42,3 +44,9 @@ func drop_item() -> void:
 func consume_active_item() -> void:
 	if cursor.current_item:
 		cursor.current_item = null
+
+func spawn_puff(parent:Node, position: Vector2) -> void:
+	var puff_instance = puff_scene.instantiate()
+	if puff_instance:
+		puff_instance.global_position = position
+		parent.add_child(puff_instance)
