@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://pfd5m2d4k8tl"]
 
-[ext_resource type="PackedScene" uid="uid://w7b4biodiorb" path="res://assets/murderer.aseprite" id="1_fhv73"]
+[ext_resource type="PackedScene" uid="uid://w7b4biodiorb" path="res://Murderer/murderer.aseprite" id="1_fhv73"]
 [ext_resource type="Script" uid="uid://bjocg360pd51f" path="res://Murderer/Muderer.gd" id="1_urcot"]
 [ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="2_jbxtt"]
 [ext_resource type="Texture2D" uid="uid://oabi2lphuv6d" path="res://assets/knife.aseprite" id="2_urcot"]

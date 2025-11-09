@@ -15,3 +15,5 @@ follow_viewport_enabled = true
 
 [node name="Cursor" parent="CursorLayer" instance=ExtResource("3_u44n3")]
 unique_name_in_owner = true
+
+[connection signal="item_crafted" from="." to="." method="_on_item_crafted"]

@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		global_position.y = clamp(global_position.y, 23, 255 - 23) #HARD CODED BOUNDS FOR ROOM
 
 
-func shake(delta: float) -> void:
+func shake(_delta: float) -> void:
 	var tween = create_tween()
 	var original_position = global_position
 	var shake_magnitude = 5.0
@@ -33,21 +33,21 @@ func shake(delta: float) -> void:
 	tween.tween_property(self, "global_position", original_position, shake_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await tween.finished
 
-func _on_face_clicked(button: int) -> void:
+func _on_face_clicked(_button: int) -> void:
 	pass # Replace with function body.
 
 
-func _on_face_held(button: int) -> void:
+func _on_face_held(_button: int) -> void:
 	held = true
 	timer.stop()
 
 
-func _on_face_released(button: int) -> void:
+func _on_face_released(_button: int) -> void:
 	held = false
 
 
 func _on_timer_timeout() -> void:
-	Game.die()
+	Game.die(Game.DeathCauses.MURDERER)
 
 func _on_too_loud() -> void:
 	if Game.has_item(knife_item):
