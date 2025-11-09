@@ -26,4 +26,4 @@ items = Array[ExtResource("2_bshw8")]([ExtResource("3_o2cth"), ExtResource("3_o2
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_uk5v1")
 
-[connection signal="clicked" from="Dresser" to="." method="_on_dresser_clicked" unbinds=1]
+[connection signal="item_grabbed" from="Dresser" to="." method="_on_dresser_item_grabbed"]
