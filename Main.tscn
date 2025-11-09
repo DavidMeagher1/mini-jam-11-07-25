@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=10 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://room.aseprite" id="1_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://ctjcoj4ssevwg" path="res://Props/Spawner.gd" id="8_03owx"]
 [ext_resource type="PackedScene" uid="uid://cv1yunhyyovl4" path="res://Props/Dresser/Dresser.tscn" id="10_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://c6s12qtqb2neg" path="res://Props/Hole/Hole.tscn" id="11_20pc6"]
-[ext_resource type="PackedScene" uid="uid://c7ni8ail5k8p4" path="res://Props/Blood/Blood.tscn" id="12_5vvyt"]
 
 [node name="Main" type="Node2D"]
 
@@ -80,12 +79,4 @@ required_deaths = 5
 metadata/_custom_type_script = "uid://ctjcoj4ssevwg"
 
 [node name="Hole" parent="Props/Hole" instance=ExtResource("11_20pc6")]
-position = Vector2(122, 197)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-follow_viewport_enabled = true
-
-[node name="Blood" parent="CanvasLayer" instance=ExtResource("12_5vvyt")]
-visible = false
 position = Vector2(122, 197)

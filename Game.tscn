@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gywso7ka6cvl"]
+[gd_scene load_steps=5 format=3 uid="uid://gywso7ka6cvl"]
 
 [ext_resource type="Script" uid="uid://cav74r102rlch" path="res://Game.gd" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://bpc8ssx1xgwhi" path="res://HUD.tscn" id="2_xkndl"]
 [ext_resource type="PackedScene" uid="uid://beyhlt0ufw3le" path="res://Cursor.tscn" id="3_u44n3"]
+[ext_resource type="PackedScene" uid="uid://c7ni8ail5k8p4" path="res://Props/Blood/Blood.tscn" id="4_sb48q"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_wbfu4")
@@ -15,5 +16,14 @@ follow_viewport_enabled = true
 
 [node name="Cursor" parent="CursorLayer" instance=ExtResource("3_u44n3")]
 unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Blood" parent="CanvasLayer" instance=ExtResource("4_sb48q")]
+visible = false
+position = Vector2(122, 197)
 
 [connection signal="item_crafted" from="." to="." method="_on_item_crafted"]
