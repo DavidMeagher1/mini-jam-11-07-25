@@ -13,10 +13,6 @@ func _ready() -> void:
 	set_physics_process(false)
 	hide()
 
-func _on_mouse_entered() -> void:
-	if timer:
-		timer.start()
-
 func _physics_process(delta: float) -> void:
 	if held:
 		shake(delta)
@@ -66,7 +62,12 @@ func _on_too_loud() -> void:
 	show()
 	set_physics_process(true)
 	if Game.active_item == flowers_item:
-		if %Knife:
-			%Knife.queue_free()
 		timer.queue_free()
 		%murderer.play("Love")
+		if %Knife:
+			%Knife.queue_free()
+
+
+func _on_face_area_entered(_area: Area2D) -> void:
+	if timer:
+		timer.start()
