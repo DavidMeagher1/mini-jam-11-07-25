@@ -8,10 +8,10 @@ class_name Spawner extends Node2D
 @export var restricted_deaths: int = 0
 
 func _ready() -> void:
-    if Game.deaths > restricted_deaths:
+    if restricted_deaths > 0 and Game.deaths > restricted_deaths:
         queue_free()
         return
-    if Game.deaths < required_deaths:
+    if required_deaths > 0 and Game.deaths < required_deaths:
         queue_free()
         return
 
