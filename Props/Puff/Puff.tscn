@@ -6,10 +6,10 @@
 [node name="puff" type="Node2D"]
 process_mode = 3
 process_priority = 1
+modulate = Color(0.4, 0.101960786, 0.101960786, 1)
 script = ExtResource("1_p4i3q")
 
 [node name="puff" parent="." instance=ExtResource("1_23jft")]
-modulate = Color(1, 0, 0, 1)
 autoplay = "puff"
 offset = Vector2(-31, 0)
 
