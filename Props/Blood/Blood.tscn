@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ni8ail5k8p4"]
+
+[ext_resource type="Texture2D" uid="uid://dyijkifgwknjk" path="res://Props/Blood/blood.aseprite" id="1_g4x2s"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4x2s"]
+light_mode = 1
+
+[node name="Blood" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+light_mask = 0
+material = SubResource("CanvasItemMaterial_g4x2s")
+texture = ExtResource("1_g4x2s")
+centered = false
