@@ -3,6 +3,8 @@ extends Spawner
 @onready var timer: Timer = $Timer
 var held: bool = false
 
+const knife_item = preload("uid://006mkxspmx88")
+
 func _ready() -> void:
 	super._ready()
 	Game.too_loud.connect(_on_too_loud)
@@ -49,5 +51,7 @@ func _on_timer_timeout() -> void:
 	Game.die()
 
 func _on_too_loud() -> void:
+	if Game.has_item(knife_item):
+		queue_free()
 	show()
 	set_physics_process(true)

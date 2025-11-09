@@ -18,6 +18,7 @@ func set_noise_level(noise: float) -> void:
 
 func _ready() -> void:
 	Game.impact.connect(_on_impact)
+	Game.died.connect(_on_game_died)
 
 func _on_impact(noise: float) -> void:
 	noise_level += noise
@@ -57,3 +58,11 @@ func _process(delta: float) -> void:
 	
 	if noise_level > 0:
 		noise_level = clamp(noise_level - NOISE_FALLOFF * delta, min_value, max_value)
+
+func _on_game_died() -> void:
+	noise_level = 0
+	self.value = 0
+	was_too_loud = false
+	react_timer = 0.0
+	visible = false
+	set_process(true)

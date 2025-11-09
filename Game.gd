@@ -6,6 +6,7 @@ signal active_item_changed(item: ItemData) # Emitted when the active item change
 signal impact(noise: float) # Will add noise to the noise bar
 signal noise_changed(noise_level: float) # Emitted when the noise level changes
 signal too_loud() # Emitted when the player makes too much noise
+signal died() # Emitted when the player dies
 
 
 var deaths: int = 0
@@ -65,3 +66,5 @@ func spawn_puff(parent: Node, position: Vector2) -> void:
 func die() -> void:
 	deaths += 1
 	get_tree().reload_current_scene.call_deferred()
+	died.emit()
+	

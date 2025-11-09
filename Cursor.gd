@@ -7,11 +7,9 @@ func set_current_item(item: ItemData) -> void:
 	if item:
 		$Sprite.texture = item.icon
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		visible = true
 	else:
 		$Sprite.texture = null
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		visible = false
 
 func _process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
