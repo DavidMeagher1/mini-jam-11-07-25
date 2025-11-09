@@ -54,7 +54,7 @@ func consume_active_item() -> void:
 	if cursor.current_item:
 		cursor.current_item = null
 
-func spawn_puff(parent:Node, position: Vector2) -> void:
+func spawn_puff(parent: Node, position: Vector2) -> void:
 	var puff_instance = puff_scene.instantiate()
 	if puff_instance:
 		puff_instance.global_position = position
