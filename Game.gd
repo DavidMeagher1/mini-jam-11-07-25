@@ -10,7 +10,7 @@ enum DeathCauses {
 
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")
 var blood_scene: PackedScene = preload("res://Props/Blood/Blood.tscn")
-var head_item: ItemData = preload("res://Data/Items/Head.tres")
+var head_item: ItemData = preload("res://Items/Head.tres")
 
 signal active_item_changed(item: ItemData) # Emitted when the active item changes
 signal impact(noise: float) # Will add noise to the noise bar
