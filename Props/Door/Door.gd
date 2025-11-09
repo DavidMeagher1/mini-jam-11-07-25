@@ -4,6 +4,7 @@ signal opened()
 
 const Key: ItemData = preload("uid://dcr0oiel6gb4a")
 const flowers_item: ItemData = preload("uid://c60inoqd4l6c")
+const dinner_item: ItemData = preload("uid://bxbgq0ca182w2")
 
 var is_open: bool = false
 
@@ -43,8 +44,12 @@ func activate() -> void:
 	if is_open:
 		#TODO: Escape through the door
 		if Game.has_item(flowers_item):
-			# TODO: Go to LOVE ending
-			Game.reload()
+			if Game.has_item(dinner_item):
+				# TODO: True LOVE ending
+				Game.reload()
+			else:
+				# TODO: False LOVE ending
+				Game.reload()
 		else:
 			# TODO: Go to escape ending
 			Game.reload()
