@@ -1,9 +1,12 @@
 extends Node2D
 
 @export var junk_needed:int = 1
+@export var poop_needed:int = 1
 var junk_amount:int = 0
+var poop_amount:int = 0
 @onready var interactable:Interactable = $Interactable
 @onready var junk_hole_sprite:Sprite2D = $JunkHoleSprite
+@onready var poop_hole_sprite:Sprite2D = $PoopHoleSprite
 func _on_interactable_clicked(_button:int) -> void:
     if Game.active_item.name == "Junk":
         junk_amount += 1
@@ -12,3 +15,10 @@ func _on_interactable_clicked(_button:int) -> void:
             interactable.disabled = true
             junk_hole_sprite.visible = true
             junk_hole_sprite.get_node("Interactable").disabled = false
+    elif Game.active_item.name == "Poop":
+        poop_amount += 1
+        Game.consume_active_item()
+        if poop_amount >= poop_needed:
+            interactable.disabled = true
+            poop_hole_sprite.visible = true
+            poop_hole_sprite.get_node("Interactable").disabled = false

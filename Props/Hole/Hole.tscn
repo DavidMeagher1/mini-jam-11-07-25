@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6s12qtqb2neg"]
+[gd_scene load_steps=14 format=3 uid="uid://c6s12qtqb2neg"]
 
 [ext_resource type="Script" uid="uid://dkjrb71stxcjv" path="res://Props/Hole/Hole.gd" id="1_858sf"]
 [ext_resource type="Script" uid="uid://bv72jx3ftu5w3" path="res://Props/Interactable.gd" id="1_e114d"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dvv8ds2n8i11v" path="res://Props/Hole/JunkHole.gd" id="5_ce4dx"]
 [ext_resource type="Script" uid="uid://bid7p87kv57hy" path="res://Props/Hole/Fire.gd" id="7_03lqb"]
 [ext_resource type="Script" uid="uid://b0gimv4kfvrbw" path="res://Props/Hole/FirePointLight.gd" id="7_fhff2"]
+[ext_resource type="Texture2D" uid="uid://cfp4pr70w7jbu" path="res://Props/Hole/popp_hole.aseprite" id="9_2b2p6"]
+[ext_resource type="Script" uid="uid://8gqblqvaet12" path="res://Props/Hole/PoopHole.gd" id="10_bostc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6vyy"]
 height = 62.0
@@ -74,6 +76,21 @@ color = Color(0.4, 0.101960786, 0.101960786, 1)
 texture = SubResource("GradientTexture2D_fhff2")
 script = ExtResource("7_fhff2")
 
+[node name="PoopHoleSprite" type="Sprite2D" parent="."]
+texture = ExtResource("9_2b2p6")
+script = ExtResource("10_bostc")
+
+[node name="Interactable" type="Area2D" parent="PoopHoleSprite"]
+position = Vector2(0, 5)
+script = ExtResource("1_e114d")
+disabled = true
+metadata/_custom_type_script = "uid://bv72jx3ftu5w3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoopHoleSprite/Interactable"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a6vyy")
+
 [connection signal="clicked" from="Interactable" to="." method="_on_interactable_clicked"]
 [connection signal="clicked" from="JunkHoleSprite/Interactable" to="JunkHoleSprite" method="_on_interactable_clicked"]
 [connection signal="clicked" from="fire/Interactable" to="fire" method="_on_interactable_clicked"]
+[connection signal="clicked" from="PoopHoleSprite/Interactable" to="PoopHoleSprite" method="_on_interactable_clicked"]
