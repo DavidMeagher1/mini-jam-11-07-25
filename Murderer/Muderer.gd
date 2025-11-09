@@ -66,7 +66,7 @@ func _on_too_loud() -> void:
 	show()
 	set_physics_process(true)
 	if Game.active_item == flowers_item:
-		if %Knife:
-			%Knife.queue_free()
 		timer.queue_free()
 		%murderer.play("Love")
+		if %Knife:
+			%Knife.queue_free()
