@@ -1,0 +1,14 @@
+[remap]
+
+importer="MeagherGames.aseprite.AnimatedSprite2D"
+type="PackedScene"
+uid="uid://gk5q04t5oayo"
+path="res://.godot/imported/fire.aseprite-cb7bc5d67ccb693d98b7743b30bcfc29.tscn"
+
+[deps]
+
+source_file="res://Props/Hole/fire.aseprite"
+dest_files=["res://.godot/imported/fire.aseprite-cb7bc5d67ccb693d98b7743b30bcfc29.tscn"]
+
+[params]
+

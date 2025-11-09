@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmd74jp3cixlg"]
+[gd_scene load_steps=12 format=3 uid="uid://cmd74jp3cixlg"]
 
 [ext_resource type="Texture2D" uid="uid://btrtto1yelke0" path="res://room.aseprite" id="1_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://cd0rs1feq5e5p" path="res://Props/Door/Door.tscn" id="2_uu6xs"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://c6m4thtcc8p1k" path="res://Items/Meat.tres" id="6_wkp8b"]
 [ext_resource type="Resource" uid="uid://dcr0oiel6gb4a" path="res://Items/Key.tres" id="7_20pc6"]
 [ext_resource type="PackedScene" uid="uid://cv1yunhyyovl4" path="res://Props/Dresser/Dresser.tscn" id="10_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://c6s12qtqb2neg" path="res://Props/Hole/Hole.tscn" id="11_20pc6"]
 
 [node name="Main" type="Node2D"]
 
@@ -71,3 +72,6 @@ position = Vector2(28, 136)
 
 [node name="Dresser" parent="." instance=ExtResource("10_wkp8b")]
 position = Vector2(187, 132)
+
+[node name="Hole" parent="." instance=ExtResource("11_20pc6")]
+position = Vector2(122, 197)

@@ -4,7 +4,8 @@ enum DeathCauses {
 	UNKNOWN,
 	MURDERER,
 	DOG,
-	SUICIDE_KNIFE_HEAD
+	SUICIDE_KNIFE_HEAD,
+	FIRE_HOLE
 }
 
 var puff_scene: PackedScene = preload("res://Props/Puff/Puff.tscn")

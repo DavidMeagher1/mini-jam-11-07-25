@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bxbgq0ca182w2"]
+
+[ext_resource type="Texture2D" uid="uid://eio3yld4ll1f" path="res://Items/Dinner.aseprite" id="1_c5x76"]
+[ext_resource type="Script" uid="uid://bf6auountwnjf" path="res://Inventory/ItemData.gd" id="1_kd18n"]
+
+[resource]
+script = ExtResource("1_kd18n")
+name = "Dinner"
+icon = ExtResource("1_c5x76")
+metadata/_custom_type_script = "uid://bf6auountwnjf"
