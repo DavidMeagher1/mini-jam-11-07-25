@@ -53,7 +53,7 @@ func activate() -> void:
 				get_tree().change_scene_to_file("uid://nugpib8rjcok")
 		else:
 			# TODO: Go to escape ending
-			Game.reload()
+			get_tree().change_scene_to_file("uid://cibj42mbkpc")
 		return
 	if Game.active_item == Key:
 		Game.consume_active_item()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cibj42mbkpc"]
+
+[ext_resource type="PackedScene" uid="uid://cr645dc0oobp8" path="res://Endings/Escape_1.aseprite" id="1_mp8f2"]
+
+[node name="Escape" type="Node2D"]
+
+[node name="Escape_1" parent="." instance=ExtResource("1_mp8f2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 128)
+limit_enabled = false

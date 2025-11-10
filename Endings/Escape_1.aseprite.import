@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Escape_1.aseprite-0f0e35adec28456c31de07b4335
 [params]
 
 use_canvas_group=true
-centered=true
+centered=false
 layers=false
 tiles=false
 tile_set_path="res://Endings/Escape_1_tileset.tres"
