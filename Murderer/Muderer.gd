@@ -67,6 +67,6 @@ func _on_too_loud() -> void:
 
 
 func _on_face_area_entered(_area: Area2D) -> void:
-	if is_loving:
+	if is_loving or not is_visible_in_tree():
 		return
 	timer.start()
