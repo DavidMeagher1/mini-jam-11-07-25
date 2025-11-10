@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cibj42mbkpc"]
+[gd_scene load_steps=3 format=3 uid="uid://cibj42mbkpc"]
 
+[ext_resource type="Script" uid="uid://bau5s8omhk5y7" path="res://Endings/Ending.gd" id="1_023k4"]
 [ext_resource type="PackedScene" uid="uid://cr645dc0oobp8" path="res://Endings/Escape_1.aseprite" id="1_mp8f2"]
 
 [node name="Escape" type="Node2D"]
+script = ExtResource("1_023k4")
 
 [node name="Escape_1" parent="." instance=ExtResource("1_mp8f2")]
 
