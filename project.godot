@@ -10,7 +10,12 @@ config_version=5
 
 [application]
 
-config/name="mini_jam_11_07_25"
+config/name="Still my Heart"
+config/description="Warning Contains Graphic depictions of suicide and self harm
+
+a game made for the MiniJam 197
+"
+config/version="0.1.0"
 run/main_scene="uid://vkj6dqvg750q"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://0yk8t2jn5h20"
