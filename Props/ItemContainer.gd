@@ -15,11 +15,11 @@ func _on_clicked(_button: int) -> void:
 		var item = items.pop_front()
 		if item:
 			item_grabbed.emit(item)
-			Game.grab_item(item)
+			Game.grab_item(item, true)
 	else:
 		var index = randi_range(0, items.size() - 1)
 		var item = items[index]
 		items.remove_at(index)
 		if item:
-			Game.grab_item(item)
+			Game.grab_item(item, true)
 			item_grabbed.emit(item)

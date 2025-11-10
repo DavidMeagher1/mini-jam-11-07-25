@@ -9,6 +9,7 @@
 script = ExtResource("1_wbfu4")
 
 [node name="HUD" parent="." instance=ExtResource("2_xkndl")]
+visible = false
 
 [node name="CursorLayer" type="CanvasLayer" parent="."]
 layer = 2147483647

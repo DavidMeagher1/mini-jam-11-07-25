@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://nugpib8rjcok"]
+
+[ext_resource type="PackedScene" uid="uid://c3wnna0obor2q" path="res://Endings/FalseLove.aseprite" id="1_8x5u0"]
+
+[node name="FalseLove" type="Node2D"]
+
+[node name="FalseLove" parent="." instance=ExtResource("1_8x5u0")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 128)
+limit_enabled = false

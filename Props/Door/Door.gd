@@ -43,13 +43,14 @@ func open():
 func activate() -> void:
 	if is_open:
 		#TODO: Escape through the door
+		Game.get_node("HUD").hide()
 		if Game.has_item(flowers_item):
 			if Game.has_item(dinner_item):
 				# TODO: True LOVE ending
 				Game.reload()
 			else:
-				# TODO: False LOVE ending
-				Game.reload()
+				# False LOVE ending
+				get_tree().change_scene_to_file("uid://nugpib8rjcok")
 		else:
 			# TODO: Go to escape ending
 			Game.reload()
