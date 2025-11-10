@@ -52,8 +52,7 @@ func activate() -> void:
 		Game.get_node("HUD").hide()
 		if Game.has_item(flowers_item):
 			if Game.has_item(dinner_item):
-				# TODO: True LOVE ending
-				Game.reload()
+				get_tree().change_scene_to_file("uid://bqrj568ghnug2")
 			else:
 				# False LOVE ending
 				get_tree().change_scene_to_file("uid://nugpib8rjcok")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqrj568ghnug2"]
+
+[ext_resource type="PackedScene" uid="uid://ctm0y6min3vgn" path="res://Endings/Love.aseprite" id="1_yb0yx"]
+
+[node name="Love" type="Node2D"]
+
+[node name="Love" parent="." instance=ExtResource("1_yb0yx")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
