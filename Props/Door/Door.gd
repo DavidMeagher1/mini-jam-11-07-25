@@ -9,9 +9,15 @@ const dinner_item: ItemData = preload("uid://bxbgq0ca182w2")
 var is_open: bool = false
 
 func _ready() -> void:
-	%CanvasModulate.show()
-	%CanvasModulate.color = Color.BLACK
 	Game.end.connect(_on_end)
+	%CanvasModulate.show()
+	%CanvasModulate.color = Color.WHITE
+	%SyncingAnimationPlayer.play("Open")
+	await get_tree().create_timer(0.3).timeout
+	%SyncingAnimationPlayer.play("Locked")
+	var tween = create_tween()
+	tween.tween_property(%CanvasModulate, "color", Color.BLACK, 0.2)
+	
 
 func _on_clicked(_button: int) -> void:
 	activate()

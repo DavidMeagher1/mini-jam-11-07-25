@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://chg1yu6730ef1"]
+
+[ext_resource type="Script" uid="uid://bjesvfjihbih0" path="res://Menu.gd" id="1_5yleq"]
+[ext_resource type="PackedScene" uid="uid://de80h8ysala6x" path="res://Menu.aseprite" id="1_uubjt"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_5yleq")
+
+[node name="Menu" parent="." instance=ExtResource("1_uubjt")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 128)
+limit_enabled = false
